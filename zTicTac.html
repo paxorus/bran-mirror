@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Tac Tic Toe</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+<style>
+.gray{height:100px;width:100px;background-color:#AAA;position:absolute;text-align:center;font-size:100px}
+</style>
+</head>
+<body>
+<svg src="dropSec.svg" width="100" height="100"/></svg>
+<div style="position:relative">
+<div class="gray"></div> <div class="gray"></div> <div class="gray"></div>
+<br>
+<div class="gray"></div> <div class="gray"></div> <div class="gray"></div>
+<br>
+<div class="gray"></div> <div class="gray"></div> <div class="gray"></div>
+</div>
+<script>
+//COMP ID
+var marker;
+//local=X = me = play X
+//else = not me = play O
+if(localStorage.compid=="X"){marker="X"}else{marker="O"}
+
+var tabul=document.getElementsByClassName("gray");
+var board=[null,null,null,null,null,null,null,null,null];
+for(var lo1=0;lo1<=8;lo1++){
+    tabul[lo1].setAttribute("data-no",lo1);
+    tabul[lo1].setAttribute("onclick","savify(this)");
+    tabul[lo1].style.left=(lo1%3*105)+"px";
+    tabul[lo1].style.top=(Math.floor(lo1/3)*105)+"px";
+}
+
+var Parse;
+Parse.initialize("r0raWxihobjYXDFyboAXLv6Shv6HyGsaFpKYlTWk", "ebigHVj8Fcy6mcUXXs4Prl78yvAY8x67BiL6wXGj");
+//OBJECTIVE:see live update from incognito within .5 sec
+
+var TicTacClass=Parse.Object.extend("TicTacClass");
+var tictac=new TicTacClass();
+var query=new Parse.Query(TicTacClass);
+
+var int=setInterval(download,500);
+
+function download(){
+    query.get("u1PXb4INiy",
+        {success:function(incoming){
+            tictac=incoming;
+            board=tictac.get("board");
+            display();
+        }},
+        {error:function(){
+            console.log("meh");
+        }}
+    );//close query.get
+}
+
+
+
+function savify(elem){
+    if(elem.innerHTML==marker){elem.innerHTML=null}else{elem.innerHTML=marker}
+    board[elem.dataset.no]=elem.innerHTML;
+    tictac.save({board:board},{success:function(){console.log("Board has been uploaded: "+JSON.stringify(tictac.get("board")))}});
+}
+
+function display(){
+    console.log("Board has been downloaded.");
+    for(var lo2=0;lo2<=8;lo2++){
+        tabul[lo2].innerHTML=board[lo2];
+    }
+    
+}
+
+
+
+</script>    
+    
+    
+    
+</body></html>

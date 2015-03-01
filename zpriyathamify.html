@@ -1,0 +1,17 @@
+<html><head><style>
+#button{background-color:#08F;color:white;font-size:36px;font-family:Calibri;padding:5px;position:absolute;left:50%;margin-left:-137px;top:250px;}
+#button:hover{text-shadow:0 0 20px orange;color:orange;}
+#inp,#out{width:500px;height:200px;position:absolute;left:50%;margin-left:-250px;}
+#inp{top:20px;}
+#out{top:320px;}
+</style></head>
+<body>
+<script src="zpriyatham.js"></script>
+The only requirement for the input is proper punctuation.
+<textarea placeholder="Type here..." id="inp" ></textarea>
+    
+<span onclick="out.value=main(inp.value)" id="button">Priyathamify This!</span>
+<textarea readonly id="out"></textarea>    
+</body>
+
+</html>
