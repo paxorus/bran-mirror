@@ -1,0 +1,147 @@
+<html><head><title>Courses</title><style>
+body{font-family:Calibri}
+.ab{background-color:#0C8;color:white;width:170px}
+.be{background-color:#8D8;color:black}
+td{text-align:center}
+th{text-align:left}
+#strike{text-decoration:line-through}
+#toggle{border-radius:10px;background-color:#08F;color:white}
+.item1{border-top-left-radius:10px;border-top-right-radius:10px}
+.itemn{border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+#sched{position:absolute;top:200px;left:100px;background-color:#CCC;opacity:0.4;z-Index:-1;border-radius:10px}
+.bio,.bchm,.cosi{border-radius:5px;color:white}
+.bio{background-color:#0C4}
+.bchm{background-color:#08C}
+.cosi{background-color:#C80}
+
+</style></head><body>
+
+
+
+<div id="body">
+<table width="100%">
+<th>My Courses(29)</th><th>Degree Requirements</th>
+
+<tr>
+
+
+<td>
+<div class="ab item1">BIO(4)<div class="be">
+14a<br>15b<br>16a<br>18a+b(half-courses)
+</div></div>
+<div class="ab">BCHM(6)<div class="be">
+100a<br>101a<br>103b<br>104a+b<br>155b/172a
+</div></div>
+<div class="ab">COSI(9)<div class="be">
+11a<br>12b<br>21a<br>29a<br>31a<br>4 elec
+</div></div>
+<div class="ab">ANTH(1)<div class="be">
+116a1
+</div></div>
+<div class="ab">PHYS(2)<div class="be">
+11b<br>19a+b(half-courses)
+</div></div>
+<div class="ab">CHEM(3)<div class="be">
+25a+b<br>29a+b(half-courses)
+</div></div>
+<div class="ab itemn">OTHER(4)<div class="be itemn">
+UWS<br>humanities<br>creative arts<br>non-western
+</div></div>
+</td>
+
+
+
+<td>
+<div class="ab item1">BIO<div class="be">
+bio 14a<br>bio 15b<br>bio 16a<br>bio 18a+b<span id="strike"><br>chem 11/15a+b<br>chem 18/19a+b</span><br>chem 25a+b<br>chem 29a+b<br>bchm 100a+155b/172a<br>anth 116a1<br>3 cosi
+</div></div>
+<div class="ab">BCHM<div class="be">
+<span id="strike">chem 11/15a+b<br>chem 18/19a+b</span><br>phys 11b<br>phys 19a+b<br>bio 14a/22a+18a<br>bio 15b/22b+18b<br>bchm 100a<br>bchm 101a<br>bchm 103b<br>bchm 104a+b<br>bchm 155b/172a
+</div></div>
+<div class="ab itemn">COSI<div class="be itemn">
+11a<br>12b<br>21a<br>29a<br>31a<br>4 elec<br><span id="strike">math 8a<br>math 10a</span>
+</div></div>
+</td>
+
+<td>
+<button id="schedControl" onclick="togSched()">View Schedule</button>
+<button id="control" onclick="togInfo()">More Info</button>
+<div id="toggle" style="display:none">For graduation requirements, I'll take 2 non-credit PE courses over the summer.
+AP Spanish got me out of the language requirement. Biochemistry courses cover the Science and Quantitative Reasoning requirements.
+BCHM 155b and BIO 18a cover the oral and writing intensive requirements. Anth 116a1 covers the Social Science requirement.
+The 4 requirements not fulfilled by degree overlaps:UWS(University Writing Seminar),HU(humanities),CA(creative arts),NW(Non-Western). 
+My UWS is "Memory & Conflict: India's Partition, 1947".
+
+
+<p>32 courses total are recommended. 44 is the max and 28 is the min. I'm taking 29 core courses. 
+A strike-through indicates that an AP covers it. Permissions required:BCHM major,BCHM elective,ANTH 116a1,BCHM 100a,all research ops</p>
+
+Semester 1:Bio 16a,Cosi 11a,Bchm 100a,Phys 19a(half)
+<br>Semester 2:Memory & Conflict
+</div>
+</td>
+
+</tr>
+</table>
+</div>
+
+<div id="sched">
+Biology courses are indicated in green, biochemistry in blue, and 
+<br>computer science in orange. Course breakdown: 29 core, Math 22a,
+<br>5 research sem, 2 PE. Total: 35 credit courses+2 PE. I do not plan on 
+<br>registering for all five research semesters or taking all of these 
+<br>courses during fall/spring.<br>
+<br><table>
+<tr><td class="bio">Bio 16a</td><td class="cosi">Cosi 11a</td><td class="bchm">Bchm 100a</td><td>Phys 19a</td><td>Math 22a</td><td>4.5</td></tr>
+<tr><td>PE</td><td class="cosi">Cosi 12b</td><td class="bchm">Bchm 101a</td><td>Phys 11b+19b</td><td>UWS</td><td>4.5+PE</td></tr>
+<tr><td class="bio">Bio 15b+18b</td><td class="cosi">Cosi 21a</td><td class="bchm">Bchm 103b</td><td>PE</td><td>Humanity</td><td>4.5+PE</td></tr>
+<tr><td class="bio">Bio 14a+18a</td><td class="cosi">Cosi 31a</td><td class="bchm">Bchm 104a</td><td></td><td>Humanity</td><td>4.5</td></tr>
+<tr><td></td><td class="cosi">Cosi 29a</td><td class="bchm">Bchm 104b</td><td>Chem 25a+29a</td><td>Anth 116a1</td><td>4.5</td></tr>
+<tr><td></td><td class="cosi">Elec</td><td class="bchm">Elec</td><td>Chem 25b+29b</td><td>Humanity</td><td>4.5</td></tr>
+<tr><td class="bio">RES</td><td class="cosi">Elec</td><td class="bchm">RES</td><td class="cosi">Elec</td><td></td><td>4</td></tr>
+<tr><td class="bio">RES</td><td class="cosi">RES</td><td class="bchm">RES</td><td class="cosi">Elec</td><td></td><td>4</td></tr>
+</table>
+<br>Summer offerings:Cosi 21a,Anth 116a1,Chem 25/29a+b,PE,certain hum.
+<br>Also:PE exemption test, Bio research might=1 Elec w/permission-->
+not restricted to 155b/172a
+</div>
+
+<script>
+var toggle=document.getElementById("toggle");
+var cont=document.getElementById("control");
+var sched=document.getElementById("sched");
+var body=document.getElementById("body");
+var schedControl=document.getElementById("schedControl");
+var count=100;var int;
+
+function togInfo() {
+if(toggle.style.display=="none")
+{toggle.style.display="block";cont.innerHTML="Collapse Info"}
+else{toggle.style.display="none";cont.innerHTML="View Info Again"}
+}
+
+function togSched() {
+	if(count==100){
+	body.style.opacity=0.4;
+	schedControl.innerHTML="Hide Schedule";
+	sched.style.opacity=1.0;
+	sched.style.zIndex=2;
+	int=setInterval(inc,10);
+	}
+	else if(count==300){
+	int=setInterval(dec,10)
+	body.style.opacity=1.0;
+	schedControl.innerHTML="View Schedule";
+	sched.style.opacity=0.4;
+	sched.style.zIndex=-1;
+	}
+}
+function dec(){count-=10;sched.style.left=count+"px";if(count<=100){clearInterval(int)}}
+function inc(){count+=10;sched.style.left=count+"px";if(count>=300){clearInterval(int)}}
+
+
+</script>
+
+
+</body>
+</html>
