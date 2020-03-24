@@ -3,26 +3,32 @@ body{font-family:Calibri}
 #body{opacity:0.3}
 .ab{background-color:#0C8;color:white;width:170px}
 .be{background-color:#8D8;color:black}
-td{text-align:center}
-th{text-align:left}
-#strike{text-decoration:line-through}
-#toggle{border-radius:10px;background-color:#08F;color:white}
-.item1{border-top-left-radius:10px;border-top-right-radius:10px}
-.itemn{border-bottom-left-radius:10px;border-bottom-right-radius:10px}
-#sched{position:absolute;top:50px;left:300px;opacity:1.0;z-Index:2;width:600px}
-.schedBox{background-color:#CCC;border-radius:10px;padding:10px}
-#schedTabList{position:absolute;top:50px;left:0}
-.schedTab{width:100px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:10px;background-color:#CCC}
-#schedTabAdd{padding:7px;border-style:dashed;border-color:#999;font-size:18px;color:#999}
-#schedTabAdd:hover{border-color:#000;color:#000}
 .bio,.bchm,.cosi{border-radius:5px;color:white}
 .bio{background-color:#0C4}
 .bchm{background-color:#08C}
 .cosi{background-color:#C80}
 
+.cerror{color:#C80}
+.chappy{color:#08C}
+.ctech{color:#0C4}
+#console,#custom{position:absolute;width:450px;height:250px;left:725px}
+#console{background-color:#000;top:0}
+#custom{top:320px}
+
+.item1{border-top-left-radius:10px;border-top-right-radius:10px}
+.itemn{border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+#sched{position:absolute;top:50px;left:150px;opacity:1.0;z-Index:2;width:700px}
+.schedBox{background-color:#CCC;border-radius:10px;padding:10px}
+#schedTabList{position:absolute;top:50px;left:0}
+.schedTab{width:100px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:10px;background-color:#CCC}
+#schedTabAdd{padding:7px;border-style:dashed;border-color:#999;font-size:18px;color:#999}
+#schedTabAdd:hover{border-color:#000;color:#000}
+#strike{text-decoration:line-through}
+#toggle{border-radius:10px;background-color:#08F;color:white}
+td{text-align:center}
+th{text-align:left}
+
 </style></head><body>
-
-
 
 <table width="100%" id="body">
 <th>My Courses(29)</th><th>Degree Requirements</th>
@@ -80,22 +86,24 @@ I'm taking 29 core courses. Course breakdown: 29 core, Math 22a,
 </tr>
 </table>
 
+
+
 <div id="sched">
 <div class="schedBox">
 You are currently viewing <span id="currentTabDisp">Original</span>.
 <br><button onclick="addTab()" id="saver" style="opacity:0.3">Save As</button>
-<br><button onclick="if(confirm('Are you sure? A schedule cannot be retrieved once it is deleted.')){deleteTab()}">Delete this Tab</button>
+<button onclick="if(confirm('Are you sure? A schedule cannot be retrieved once it is deleted.')){deleteTab()}">Delete this Tab</button>
 <br>
 <table>
 <tbody id="schedChart">
-<tr><td>Sem 1</td><td><div class="bio">Bio 16a</div></td><td><div class="cosi">Cosi 11a</div></td><td><div class="bchm">Bchm 100a</div></td><td><div title="0.5">Phys 19a</div></td><td><div>Math 22a</div></td><td>4.5</td></tr>
-<tr><td>Sem 2</td><td><div title="Physical Education">PE</div></td><td><div class="cosi">Cosi 12b</div></td><td><div class="bchm">Bchm 101a</div></td><td><div title="1.5">Phys 11b+19b</div></td><td><div>UWS</div></td><td>4.5+1PE</td></tr>
-<tr><td>Sem 3</td><td><div class="bio" title="1.5">Bio 15b+18b</div></td><td><div class="cosi">Cosi 21a</div></td><td><div class="bchm">Bchm 103b</div></td><td><div title="Physical Education">PE</div></td><td><div>Humanity</div></td><td>4.5+1PE</td></tr>
-<tr><td>Sem 4</td><td><div class="bio" title="1.5">Bio 14a+18a</div></td><td><div class="cosi">Cosi 31a</div></td><td><div class="bchm">Bchm 104a</div></td><td></td><td><div>Humanity</div></td><td>4.5</td></tr>
-<tr><td>Sem 5</td><td></td><td><div class="cosi">Cosi 29a</div></td><td><div class="bchm">Bchm 104b</div></td><td><div class="chem" title="1.5">Chem 25a+29a</div></td><td><div>Anth 116a1</div></td><td>4.5</td></tr>
-<tr><td>Sem 6</td><td></td><td><div class="cosi">Elec</div></td><td><div class="bchm">Elec</div></td><td><div class="chem" title="1.5">Chem 25b+29b</div></td><td><div>Humanity</div></td><td>4.5</td></tr>
-<tr><td>Sem 7</td><td><div class="bio">RES</div></td><td><div class="cosi">Elec</div></td><td><div class="bchm">RES</div></td><td><div class="cosi">Elec</div></td><td></td><td>4</td></tr>
-<tr><td>Sem 8</td><td><div class="bio">RES</div></td><td><div class="cosi">RES</div></td><td><div class="bchm">RES</div></td><td><div class="cosi">Elec</div></td><td></td><td>4</td></tr>
+<tr><td>Sem 1</td><td><div title="Lab">Phys 19a</div></td><td><div class="bio">Bio 16a</div></td><td><div class="cosi">Cosi 11a</div></td><td><div class="bchm">Bchm 100a</div></td><td><div>Math 22a</div></td><td></td><td>4.5</td></tr>
+<tr><td>Sem 2</td><td><div title="Lab">Phys 19b</div></td><td><div>Phys 11b</div></td><td><div class="cosi">Cosi 12b</div></td><td><div class="bchm">Bchm 101a</div></td><td><div>UWS</div></td><td><div title="Physical Education">PE</div></td><td>4.5+1PE</td></tr>
+<tr><td>Sem 3</td><td><div class="bio" title="Lab">Bio 18b</div></td><td><div class="bio">Bio 15b</div></td><td><div class="cosi">Cosi 21a</div></td><td><div class="bchm">Bchm 103b</div></td><td><div>Humanity</div></td><td><div title="Physical Education">PE</div></td><td>4.5+1PE</td></tr>
+<tr><td>Sem 4</td><td><div class="bio" title="Lab">Bio 18a</div></td><td><div class="bio">Bio 14a</div></td><td><div class="cosi">Cosi 31a</div></td><td><div class="bchm">Bchm 104a</div></td><td><div>Humanity</div></td><td></td><td>4.5</td></tr>
+<tr><td>Sem 5</td><td><div class="chem" title="Lab">Chem 29a</div></td><td><div class="chem">Chem 25a</div></td><td><div class="cosi">Cosi 29a</div></td><td><div class="bchm">Bchm 104b</div></td><td><div>Humanity</div></td><td></td><td>4.5</td></tr>
+<tr><td>Sem 6</td><td><div class="chem" title="Lab">Chem 29b</div></td><td><div class="chem">Chem 25b</div></td><td><div class="cosi">Elec</div></td><td><div class="bchm">Elec</div></td><td><div>Anth 116a1</div></td><td></td><td>4.5</td></tr>
+<tr><td>Sem 7</td><td></td><td><div class="bio">RES</div></td><td><div class="cosi">Elec</div></td><td><div class="bchm">RES</div></td><td></td><td><div class="cosi">Elec</div></td><td>4</td></tr>
+<tr><td>Sem 8</td><td></td><td><div class="bio">RES</div></td><td><div class="cosi">RES</div></td><td><div class="bchm">RES</div></td><td></td><td><div class="cosi">Elec</div></td><td>4</td></tr>
 </tbody>
 </table>
 Biology courses are indicated in green, biochemistry in blue, and 
@@ -108,12 +116,23 @@ This schedule is interactive, thanks to HTML node references and HTML5. Using yo
 errors in your scheduling, such as multiple classes in one block or a class concurrent with its prerequisite. When you are finished, save your work! You may
 close your browser and resume work at any time by clicking on a tab to load it.
 </div>
-</div>
+<div class="schedBox" id="console"><code>
+    <div class="ctech">All tabs loaded successfully.</div><div class="chappy">There are no errors.</div>
+</code></div>
+<!--<div class="schedBox" id="custom"></div>-->
+</div><!--end id=sched-->
+
 <div id="schedTabList">
 <div class="schedTab" onclick="loadTab(this);saver.innerHTML='Save As';saver.onclick=addTab">Original</div>
 <div style="height:29px"></div>
 <div class="schedTab" id="schedTabAdd" onclick="addTab()"><b style="position:relative;left:45px">+</b></div>
 </div>
+
+
+
+
+
+
 
 
 
@@ -126,6 +145,7 @@ close your browser and resume work at any time by clicking on a tab to load it.
 
 //SHORTS
 var body=document.getElementById("body");
+var code=document.getElementById("console").firstChild;
 var cont=document.getElementById("control");
 var currentTabDisp=document.getElementById("currentTabDisp");
 var saver=document.getElementById("saver");
@@ -136,41 +156,100 @@ var schedTabAdd=document.getElementById("schedTabAdd");
 var schedTabList=document.getElementById("schedTabList");
 var toggle=document.getElementById("toggle");
 
+var message;
 //VERIFICATION
-var preerror;
+var error;
 
+//1 has pre
+//2 has co
+//3 has preco
+//4 pre or pre
+//5 specific
+//6 after
+//7 before
+
+//cosi 
+localStorage.rest="le33~1~le13;le53~1~le13;le113~1~le13;le133~1~le13;le136~1~le13;le156~1~le13;le153~6~6;le73~4~le33,le53;";
+//bio
+localStorage.rest+="le131~6~6;le151~6~6;";
+//phys
+localStorage.rest+="le31~3~le11;";
+//chem
+localStorage.rest+="le91~3~le92;le111~3~le112;le112~1~le92;";
+//uws,pe
+localStorage.rest+="le35~5~2;le36~7~5;le56~7~5;";
+//bchm
+localStorage.rest+="le34~1~le14;le54~1~le14;le74~1~le14;le114~1~le14;le114~1~le94;le94~1~le74;le134~6~6;le154~6~6;";
+localStorage.rest+="le34~7~7;le54~7~7;le94~7~7;le114~7~7;";
+
+function verify(divelem){
+error=false;
+this.id="le"+divelem.id;
+this.rest=localStorage.rest.split(";");
+for(var loop12=0;loop12<this.rest.length;loop12++){
+if((this.rest[loop12].indexOf(this.id))||(!error)){runDiag(this.rest[loop12])}
+}
+if(!error){throwMessage("Diagnostics run. No errors!","chappy")}
+}
+
+function runDiag(rest){
+rest=rest.split("~");
+switch(rest[1]){
+	case '1':if(getRowById(rest[0])<=getRowById(rest[2])){error=true;throwMessage(document.getElementById("mobi"+rest[0]).innerHTML+" must appear after its prerequisite, "+document.getElementById("mobi"+rest[2]).innerHTML+".","cerror")}break;
+	case '2':if(getRowById(rest[0])!=getRowById(rest[2])){error=true;throwMessage(document.getElementById("mobi"+rest[0]).innerHTML+" must appear alongside its corequisite, "+document.getElementById("mobi"+rest[2]).innerHTML+".","cerror")}break;
+	case '3':if(getRowById(rest[0])<getRowById(rest[2])){error=true;throwMessage(document.getElementById("mobi"+rest[0]).innerHTML+" cannot appear before its pre+corequisite, "+document.getElementById("mobi"+rest[2]).innerHTML+".","cerror")}break;
+	case '4':break;
+	case '5':break;
+	case '6':break;
+	case '7':break;
+}
+}
+
+function getRowById(id){
+id=document.getElementById("mobi"+id);
+return id.parentNode.parentNode.firstChild.innerHTML.charAt(4);
+}
+
+/*
 function verify(divelem){
 
 preerror=false;
 switch(divelem.className){
-	case "bchm":preerror=(check(13,33))||(check(13,53))||(check(13,73))||(getRowById("mobile133")<=6)
-		||(getRowById("mobile153")<=6)||(check(73,93))||((getRowById("mobile113"))<(getRowById("mobile13")));break;
+	case "bchm":preerror=(prechk(13,33))||(prechk(13,53))||(prechk(13,73))||(getRowById("mobile133")<=6)
+		||(getRowById("mobile153")<=6)||(prechk(73,93))||coprechk(13,113);break;
 	case "bio":preerror=(getRowById("mobile131")<=6)||(getRowById("mobile151")<=6);break;
-	case "cosi":preerror=(check(12,32))||(check(12,52))||(check(12,112))||(check(12,132))||(check(12,134))||(check(12,154))
-		||((check(32,72))&&(check(52,72)))||(getRowById("mobile152")<=6);break;
+	case "cosi":preerror=(prechk(12,32))||(prechk(12,52))||(prechk(12,112))||(prechk(12,132))||(prechk(12,134))||(precheck(12,154))
+		||((prechk(32,72))&&(prechk(52,72)))||(getRowById("mobile152")<=6);break;
 	case "chem":preerror=(check(94,114));break;
 	default:preerror=(getRowById("mobile31")>=5)||(getRowById("mobile54")>=5)||(getRowById("mobile31")==getRowById("mobile54"))||(getRowById("mobile35")!=2);
 }
-if(preerror){alert("Sequencing error!")}
-
-}
-
-function check(preid,id){
+//if(preerror){message=document.createElement("div");message.innerHTML="One or more prequisites are being violated.";message.className="cerror";code.appendChild(message)}
+//^give the message within the appropriate function
+}//close verify
+function prechk(preid,id){
 preid=getRowById("mobile"+preid);id=getRowById("mobile"+id);
 return (preid>=id);
 }//true means error
-
-function getRowById(someid){
-someid=document.getElementById(someid);
-if(someid){return someid.parentNode.parentNode.firstChild.innerHTML.charAt(4)}
+function cochk(coid,id){
+coid=getRowById("mobile"+coid);id=getRowById("mobile"+id);
+return (coid!=id);
 }
+function beforechk(id,type){//before,after,
+id=getRowById("mobile"+id);
+switch(type){
+	case "sen":id
+}
+}
+function aftercheck(id){}
+*/
+
 
 //ENCRYPTION
 function encrypt(){//global-->string
 this.string="#%";
 for(var loop5=1;loop5<=15;loop5+=2){
 this.rowstring="$%";
-for(var loop4=1;loop4<=5;loop4++){
+for(var loop4=1;loop4<=6;loop4++){
 this.tdstring="";
 this.short=document.getElementById("cell"+loop5+loop4).firstChild;
 if(this.short)
@@ -182,9 +261,9 @@ return this.string;
 
 var newdiv,rowarray,tdarray;
 
-function decrypt(str){
+function decrypt(str){//string-->global
 for(var loop10=1;loop10<=15;loop10+=2){
-for(var loop9=1;loop9<=5;loop9++){
+for(var loop9=1;loop9<=6;loop9++){
 document.getElementById("cell"+loop10+loop9).innerHTML=""}
 }
 
@@ -192,7 +271,7 @@ rowarray=str.split("$%");
 for(var loop8=1;loop8<=8;loop8++){
 tdarray=rowarray[loop8].split(";");
 
-for(var loop7=0;loop7<=4;loop7++){if(tdarray[loop7]!="[blank]"){
+for(var loop7=0;loop7<=5;loop7++){if(tdarray[loop7]!="[blank]"){
 	var abbr=tdarray[loop7].split("~");
 	this.class=abbr[0];this.title=abbr[1];this.id="mobile"+abbr[2];this.html=abbr[3];
 	newdiv=document.createElement("div");
@@ -216,7 +295,7 @@ for(var loop7=0;loop7<=4;loop7++){if(tdarray[loop7]!="[blank]"){
 var row;var origtd;
 
 for(var loop2=1;loop2<=15;loop2+=2){
-for(var loop1=1;loop1<=5;loop1++){
+for(var loop1=1;loop1<=6;loop1++){
 var short=schedChart.childNodes[loop2].childNodes[loop1];//a table datum
 short.setAttribute("id","cell"+loop2+loop1);
 short.setAttribute("ondragover","prev(event)");
@@ -241,6 +320,25 @@ function get(ev) {//ondrop
 
 
 
+
+
+//CONSOLE
+var messCount=2;
+code.removeChild(code.firstChild);
+
+function throwMessage(text,type) {
+message=document.createElement("div");
+message.innerHTML=text;
+message.className=type;
+code.appendChild(message);
+messCount++;
+if(messCount==17){code.removeChild(code.firstChild);messCount--}
+}
+
+
+
+
+
 //HANDLE TABS
 var tabTotal=0;
 var currentTab="Original";
@@ -250,47 +348,51 @@ if(!localStorage.tabs){localStorage.tabs="!%Original@%"+Date().slice(4,24)+encry
 
 function recallTabs(){
 this.tabs=localStorage.tabs.split("!%");
-for(var loop11=2;loop11<this.tabs.length;loop11++)
-{
-this.tabtext=this.tabs[loop11];
-this.tabname=this.tabtext.slice(0,this.tabtext.indexOf("@%"));
-this.timetext=this.tabtext.slice(this.tabtext.indexOf("@%")+2,this.tabtext.indexOf("#%"));
+for(var loop11=2;loop11<this.tabs.length;loop11++){
+	this.tabtext=this.tabs[loop11];
+	this.tabname=this.tabtext.slice(0,this.tabtext.indexOf("@%"));
+	this.timetext=this.tabtext.slice(this.tabtext.indexOf("@%")+2,this.tabtext.indexOf("#%"));
 
-this.space=document.createElement("div");this.space.style.height="29px";
-this.tabelem=document.createElement("div");this.tabelem.innerHTML=this.tabname;this.tabelem.className="schedTab";
-this.tabelem.addEventListener("click",function() {loadTab(this)});this.tabelem.id=this.tabname+"tabber";
-this.timeelem=document.createElement("i");this.timeelem.innerHTML=this.timetext;this.timeelem.style.fontSize="12px";
-
-this.tabelem.appendChild(document.createElement("br"));
-this.tabelem.appendChild(this.timeelem);
-schedTabList.insertBefore(this.tabelem,schedTabAdd);
-schedTabList.insertBefore(this.space,schedTabAdd);
-tabTotal++;
-}
-}recallTabs();
-
-
-function addTab(){if(tabTotal<6){
-	var name=prompt("Enter a name for the new tab.");
-	while((localStorage.tabs.indexOf("!%"+name)!=-1)&&(name!="null")){ 	
-		if(name==""){name=prompt("Whoops! You didn't enter a name. Try again.")}
-		else{name=prompt("That name is taken. Please enter another name for the new tab.")}	
-	}
-	if(name!="null"){
-	this.time=Date().slice(4,24);
-	localStorage.tabs+="!%"+name+"@%"+this.time+"#%"+encrypt();alert("New tab stored.");
 	this.space=document.createElement("div");this.space.style.height="29px";
-	this.tabelem=document.createElement("div");this.tabelem.innerHTML=name;this.tabelem.className="schedTab";this.tabelem.id=name+"tabber";
-	this.tabelem.addEventListener("click",function() {loadTab(this)});
-	this.timeelem=document.createElement("i");this.timeelem.innerHTML=this.time;this.timeelem.style.fontSize="12px";
-	
+	this.tabelem=document.createElement("div");this.tabelem.innerHTML=this.tabname;this.tabelem.className="schedTab";
+	this.tabelem.addEventListener("click",function() {loadTab(this)});this.tabelem.id=this.tabname+"tabber";
+	this.timeelem=document.createElement("i");this.timeelem.innerHTML=this.timetext;this.timeelem.style.fontSize="12px";
+
 	this.tabelem.appendChild(document.createElement("br"));
 	this.tabelem.appendChild(this.timeelem);
 	schedTabList.insertBefore(this.tabelem,schedTabAdd);
 	schedTabList.insertBefore(this.space,schedTabAdd);
-	tabTotal++
-	}//close if(name!="null)
-}else{alert("You can only save up to six tabs for the time being. It\'s just a temporary design issue- nothing technical.")}}
+	tabTotal++;
+	}
+}recallTabs();
+
+
+function addTab(){
+	if(tabTotal<6){
+		var name=prompt("Enter a name for the new tab.");
+		while((localStorage.tabs.indexOf("!%"+name)!=-1)||(name=="")){ 	
+			if(name==""){name=prompt("Whoops! You didn't enter a name. Try again.")}
+			else{name=prompt("That name is taken. Please enter another name for the new tab.")}	
+		}//close while
+		if(name){
+		this.time=Date().slice(4,24);
+		localStorage.tabs+="!%"+name+"@%"+this.time+encrypt();
+		this.space=document.createElement("div");this.space.style.height="29px";
+		this.tabelem=document.createElement("div");this.tabelem.innerHTML=name;this.tabelem.className="schedTab";this.tabelem.id=name+"tabber";
+		this.tabelem.addEventListener("click",function() {loadTab(this)});
+		this.timeelem=document.createElement("i");this.timeelem.innerHTML=this.time;this.timeelem.style.fontSize="12px";
+	
+		this.tabelem.appendChild(document.createElement("br"));
+		this.tabelem.appendChild(this.timeelem);
+		schedTabList.insertBefore(this.tabelem,schedTabAdd);
+		schedTabList.insertBefore(this.space,schedTabAdd);
+		throwMessage("Tab "+name+" has been stored.","chappy");
+		tabTotal++;
+		}//close if(name)
+		else{throwMessage("A tab was not added.","ctech")}
+	}//close if(tabTotal<6)
+	else{throwMessage("You can only save up to six tabs for the time being. It\'s just a temporary design issue- nothing technical.","ctech")}
+}//func
 
 
 
@@ -300,6 +402,7 @@ function loadTab(tab) {
 	
 	previousTab=currentTab;
 	currentTab=tab.innerHTML.split("<br>")[0];
+	if(currentTab!=previousTab){throwMessage("Tab "+currentTab+" loaded successfully.","chappy")}
 	this.short=localStorage.tabs;
 	this.short=this.short.slice(this.short.indexOf("!%"+currentTab)+2,this.short.length);
 	decrypt(this.short.slice(this.short.indexOf("#%")+2,this.short.indexOf("!%")));
@@ -314,6 +417,7 @@ this.newtime=Date().slice(4,24);this.newfile="!%"+currentTab+"@%"+this.newtime+e
 if(this.ind2!=-1){this.end=localStorage.tabs.slice(this.ind2,localStorage.tabs.length)}else{this.end=""}
 localStorage.tabs=localStorage.tabs.slice(0,this.ind1)+this.newfile+this.end;
 
+throwMessage(currentTab+" has saved.","chappy");
 document.getElementById(currentTab+"tabber").childNodes[2].innerHTML=this.newtime;
 }
 
@@ -346,19 +450,17 @@ var conflict;
 //CLASS SUBTOTALS
 function recalc(td) {
 row=td.parentNode;var sum=0;var pe=0;conflict=false;
-for(var loop3=1;loop3<=5;loop3++){
+for(var loop3=1;loop3<=6;loop3++){
 
 if(row.childNodes[loop3].childNodes[1]){conflict=true}
 if(row.childNodes[loop3].firstChild){
-if(row.childNodes[loop3].firstChild.childNodes[1]){conflict=true}
-switch(row.childNodes[loop3].firstChild.title){
-	case 'Physical Education':pe++;break;
-	case '1.5':sum+=1.5;break;
-	case '0.5':sum+=0.5;break;
-	default:sum++;
-	}//close switch
-}//close if
-
+	if(row.childNodes[loop3].firstChild.childNodes[1]){conflict=true}
+	switch(row.childNodes[loop3].firstChild.title){
+		case 'Physical Education':pe++;break;
+		case 'Lab':sum+=0.5;break;
+		default:sum++;
+		}//close switch
+	}//close if
 }//close for loop
 if(pe>0){sum+="+"+pe+"PE"}
 row.lastChild.innerHTML=sum;
@@ -369,16 +471,16 @@ if(conflict){row.lastChild.innerHTML="Time Conflict"}
 
 
 //EFFECTS
-var count=300;var int;
+var count=150;var int;
  
 function togInfo() {
 if(toggle.style.display=="none")
-{toggle.style.display="block";cont.innerHTML="Collapse Info";if(count==300){togSched()}}
+{toggle.style.display="block";cont.innerHTML="Collapse Info";if(count==150){togSched()}}
 else{toggle.style.display="none";cont.innerHTML="View Info Again"}
 }
 
 function togSched() {
-	if(count==100){
+	if(count==50){
 	if(toggle.style.display=="block"){togInfo()}
 	body.style.opacity=0.3;
 	schedControl.innerHTML="Hide Schedule";
@@ -386,7 +488,7 @@ function togSched() {
 	sched.style.zIndex=2;
 	int=setInterval(inc,10);
 	}
-	else if(count==300){
+	else if(count==150){
 	int=setInterval(dec,10);
 	body.style.opacity=1.0;
 	schedControl.innerHTML="View Schedule";
@@ -395,8 +497,8 @@ function togSched() {
 	}
 }
 
-function dec(){count-=10;sched.style.left=count+"px";schedTabList.style.left=(count-300)+"px";if(count<=100){clearInterval(int)}}
-function inc(){count+=10;sched.style.left=count+"px";schedTabList.style.left=(count-300)+"px";if(count>=300){clearInterval(int)}}
+function dec(){count-=10;sched.style.left=count+"px";schedTabList.style.left=(count-150)+"px";if(count<=50){clearInterval(int)}}
+function inc(){count+=10;sched.style.left=count+"px";schedTabList.style.left=(count-150)+"px";if(count>=150){clearInterval(int)}}
 
 var str2=encrypt();
 
