@@ -1,5 +1,6 @@
 <html><head><title>Courses</title><style>
 body{font-family:Calibri}
+#body{opacity:0.3}
 .ab{background-color:#0C8;color:white;width:170px}
 .be{background-color:#8D8;color:black}
 td{text-align:center}
@@ -8,7 +9,12 @@ th{text-align:left}
 #toggle{border-radius:10px;background-color:#08F;color:white}
 .item1{border-top-left-radius:10px;border-top-right-radius:10px}
 .itemn{border-bottom-left-radius:10px;border-bottom-right-radius:10px}
-#sched{position:absolute;top:200px;left:100px;background-color:#CCC;opacity:0.4;z-Index:-1;border-radius:10px}
+#sched{position:absolute;top:50px;left:300px;opacity:1.0;z-Index:2;width:600px}
+.schedBox{background-color:#CCC;border-radius:10px;padding:10px}
+#schedTabList{position:absolute;top:50px;left:0}
+.schedTab{width:100px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:10px;background-color:#CCC}
+#schedTabAdd{padding:7px;border-style:dashed;border-color:#999;font-size:18px;color:#999}
+#schedTabAdd:hover{border-color:#000;color:#000}
 .bio,.bchm,.cosi{border-radius:5px;color:white}
 .bio{background-color:#0C4}
 .bchm{background-color:#08C}
@@ -18,13 +24,9 @@ th{text-align:left}
 
 
 
-<div id="body">
-<table width="100%">
+<table width="100%" id="body">
 <th>My Courses(29)</th><th>Degree Requirements</th>
-
 <tr>
-
-
 <td>
 <div class="ab item1">BIO(4)<div class="be">
 14a<br>15b<br>16a<br>18a+b(half-courses)
@@ -48,9 +50,6 @@ th{text-align:left}
 UWS<br>humanities<br>creative arts<br>non-western
 </div></div>
 </td>
-
-
-
 <td>
 <div class="ab item1">BIO<div class="be">
 bio 14a<br>bio 15b<br>bio 16a<br>bio 18a+b<span id="strike"><br>chem 11/15a+b<br>chem 18/19a+b</span><br>chem 25a+b<br>chem 29a+b<br>bchm 100a+155b/172a<br>anth 116a1<br>3 cosi
@@ -64,81 +63,342 @@ bio 14a<br>bio 15b<br>bio 16a<br>bio 18a+b<span id="strike"><br>chem 11/15a+b<br
 </td>
 
 <td>
-<button id="schedControl" onclick="togSched()">View Schedule</button>
+<button id="schedControl" onclick="togSched()">Hide Schedule</button>
 <button id="control" onclick="togInfo()">More Info</button>
-<div id="toggle" style="display:none">For graduation requirements, I'll take 2 non-credit PE courses over the summer.
-AP Spanish got me out of the language requirement. Biochemistry courses cover the Science and Quantitative Reasoning requirements.
-BCHM 155b and BIO 18a cover the oral and writing intensive requirements. Anth 116a1 covers the Social Science requirement.
-The 4 requirements not fulfilled by degree overlaps:UWS(University Writing Seminar),HU(humanities),CA(creative arts),NW(Non-Western). 
-My UWS is "Memory & Conflict: India's Partition, 1947".
-
-
-<p>32 courses total are recommended. 44 is the max and 28 is the min. I'm taking 29 core courses. 
-A strike-through indicates that an AP covers it. Permissions required:BCHM major,BCHM elective,ANTH 116a1,BCHM 100a,all research ops</p>
-
-Semester 1:Bio 16a,Cosi 11a,Bchm 100a,Phys 19a(half)
-<br>Semester 2:Memory & Conflict
+<div id="toggle" style="display:none">For graduation requirements, AP Spanish got me out of the language requirement. Biochemistry 
+courses cover the Science and Quantitative Reasoning requirements. BCHM 155b and BIO 18a cover the oral and writing intensive requirements. 
+Anth 116a1 covers the Social Science requirement. The 6 requirements not fulfilled by degree overlaps:UWS(University Writing Seminar),
+HU(humanities),CA(creative arts),NW(Non-Western),2 PE. 
+<p>For core courses, 32 courses total are recommended. 44 is the max and 28 is the min. 
+I'm taking 29 core courses. Course breakdown: 29 core, Math 22a,
+5 research sem, 2 PE. Total: 35 credit courses+2 PE. A strike-through indicates that an AP covers it.</p>
+<p>Permissions required:BCHM major,BCHM elective,ANTH 116a1,BCHM 100a,all research ops
+<br>Summer offerings:Cosi 21a,Anth 116a1,Chem 25/29a+b,PE,certain humanities
+<br>Also:PE exemption test, Bio research might=1 Elec w/permission-->not restricted to 155b/172a</p>
 </div>
 </td>
-
 </tr>
 </table>
-</div>
 
 <div id="sched">
-Biology courses are indicated in green, biochemistry in blue, and 
-<br>computer science in orange. Course breakdown: 29 core, Math 22a,
-<br>5 research sem, 2 PE. Total: 35 credit courses+2 PE. I do not plan on 
-<br>registering for all five research semesters or taking all of these 
-<br>courses during fall/spring.<br>
-<br><table>
-<tr><td class="bio">Bio 16a</td><td class="cosi">Cosi 11a</td><td class="bchm">Bchm 100a</td><td>Phys 19a</td><td>Math 22a</td><td>4.5</td></tr>
-<tr><td>PE</td><td class="cosi">Cosi 12b</td><td class="bchm">Bchm 101a</td><td>Phys 11b+19b</td><td>UWS</td><td>4.5+PE</td></tr>
-<tr><td class="bio">Bio 15b+18b</td><td class="cosi">Cosi 21a</td><td class="bchm">Bchm 103b</td><td>PE</td><td>Humanity</td><td>4.5+PE</td></tr>
-<tr><td class="bio">Bio 14a+18a</td><td class="cosi">Cosi 31a</td><td class="bchm">Bchm 104a</td><td></td><td>Humanity</td><td>4.5</td></tr>
-<tr><td></td><td class="cosi">Cosi 29a</td><td class="bchm">Bchm 104b</td><td>Chem 25a+29a</td><td>Anth 116a1</td><td>4.5</td></tr>
-<tr><td></td><td class="cosi">Elec</td><td class="bchm">Elec</td><td>Chem 25b+29b</td><td>Humanity</td><td>4.5</td></tr>
-<tr><td class="bio">RES</td><td class="cosi">Elec</td><td class="bchm">RES</td><td class="cosi">Elec</td><td></td><td>4</td></tr>
-<tr><td class="bio">RES</td><td class="cosi">RES</td><td class="bchm">RES</td><td class="cosi">Elec</td><td></td><td>4</td></tr>
+<div class="schedBox">
+You are currently viewing <span id="currentTabDisp">Original</span>.
+<br><button onclick="addTab()" id="saver" style="opacity:0.3">Save As</button>
+<br><button onclick="if(confirm('Are you sure? A schedule cannot be retrieved once it is deleted.')){deleteTab()}">Delete this Tab</button>
+<br>
+<table>
+<tbody id="schedChart">
+<tr><td>Sem 1</td><td><div class="bio">Bio 16a</div></td><td><div class="cosi">Cosi 11a</div></td><td><div class="bchm">Bchm 100a</div></td><td><div title="0.5">Phys 19a</div></td><td><div>Math 22a</div></td><td>4.5</td></tr>
+<tr><td>Sem 2</td><td><div title="Physical Education">PE</div></td><td><div class="cosi">Cosi 12b</div></td><td><div class="bchm">Bchm 101a</div></td><td><div title="1.5">Phys 11b+19b</div></td><td><div>UWS</div></td><td>4.5+1PE</td></tr>
+<tr><td>Sem 3</td><td><div class="bio" title="1.5">Bio 15b+18b</div></td><td><div class="cosi">Cosi 21a</div></td><td><div class="bchm">Bchm 103b</div></td><td><div title="Physical Education">PE</div></td><td><div>Humanity</div></td><td>4.5+1PE</td></tr>
+<tr><td>Sem 4</td><td><div class="bio" title="1.5">Bio 14a+18a</div></td><td><div class="cosi">Cosi 31a</div></td><td><div class="bchm">Bchm 104a</div></td><td></td><td><div>Humanity</div></td><td>4.5</td></tr>
+<tr><td>Sem 5</td><td></td><td><div class="cosi">Cosi 29a</div></td><td><div class="bchm">Bchm 104b</div></td><td><div class="chem" title="1.5">Chem 25a+29a</div></td><td><div>Anth 116a1</div></td><td>4.5</td></tr>
+<tr><td>Sem 6</td><td></td><td><div class="cosi">Elec</div></td><td><div class="bchm">Elec</div></td><td><div class="chem" title="1.5">Chem 25b+29b</div></td><td><div>Humanity</div></td><td>4.5</td></tr>
+<tr><td>Sem 7</td><td><div class="bio">RES</div></td><td><div class="cosi">Elec</div></td><td><div class="bchm">RES</div></td><td><div class="cosi">Elec</div></td><td></td><td>4</td></tr>
+<tr><td>Sem 8</td><td><div class="bio">RES</div></td><td><div class="cosi">RES</div></td><td><div class="bchm">RES</div></td><td><div class="cosi">Elec</div></td><td></td><td>4</td></tr>
+</tbody>
 </table>
-<br>Summer offerings:Cosi 21a,Anth 116a1,Chem 25/29a+b,PE,certain hum.
-<br>Also:PE exemption test, Bio research might=1 Elec w/permission-->
-not restricted to 155b/172a
+Biology courses are indicated in green, biochemistry in blue, and 
+computer science in orange. I do not plan on 
+registering for all five research semesters or taking all of these 
+courses during fall/spring.
+</div>
+<div class="schedBox" style="position:relative;top:30px">
+This schedule is interactive, thanks to HTML node references and HTML5. Using your mouse, drag classes into empty cells. JavaScript will alert you of any
+errors in your scheduling, such as multiple classes in one block or a class concurrent with its prerequisite. When you are finished, save your work! You may
+close your browser and resume work at any time by clicking on a tab to load it.
+</div>
+</div>
+<div id="schedTabList">
+<div class="schedTab" onclick="loadTab(this);saver.innerHTML='Save As';saver.onclick=addTab">Original</div>
+<div style="height:29px"></div>
+<div class="schedTab" id="schedTabAdd" onclick="addTab()"><b style="position:relative;left:45px">+</b></div>
 </div>
 
-<script>
-var toggle=document.getElementById("toggle");
-var cont=document.getElementById("control");
-var sched=document.getElementById("sched");
-var body=document.getElementById("body");
-var schedControl=document.getElementById("schedControl");
-var count=100;var int;
 
+
+
+
+<script>
+//div in a div-->dom exception 3 when attempt to place inside self
+//error console=subtotal total,major req & grad req
+//add/delete/include+exclude your own classes,major exclusion
+
+//SHORTS
+var body=document.getElementById("body");
+var cont=document.getElementById("control");
+var currentTabDisp=document.getElementById("currentTabDisp");
+var saver=document.getElementById("saver");
+var sched=document.getElementById("sched");
+var schedChart=document.getElementById("schedChart");
+var schedControl=document.getElementById("schedControl");
+var schedTabAdd=document.getElementById("schedTabAdd");
+var schedTabList=document.getElementById("schedTabList");
+var toggle=document.getElementById("toggle");
+
+//VERIFICATION
+var preerror;
+
+function verify(divelem){
+
+preerror=false;
+switch(divelem.className){
+	case "bchm":preerror=(check(13,33))||(check(13,53))||(check(13,73))||(getRowById("mobile133")<=6)
+		||(getRowById("mobile153")<=6)||(check(73,93))||((getRowById("mobile113"))<(getRowById("mobile13")));break;
+	case "bio":preerror=(getRowById("mobile131")<=6)||(getRowById("mobile151")<=6);break;
+	case "cosi":preerror=(check(12,32))||(check(12,52))||(check(12,112))||(check(12,132))||(check(12,134))||(check(12,154))
+		||((check(32,72))&&(check(52,72)))||(getRowById("mobile152")<=6);break;
+	case "chem":preerror=(check(94,114));break;
+	default:preerror=(getRowById("mobile31")>=5)||(getRowById("mobile54")>=5)||(getRowById("mobile31")==getRowById("mobile54"))||(getRowById("mobile35")!=2);
+}
+if(preerror){alert("Sequencing error!")}
+
+}
+
+function check(preid,id){
+preid=getRowById("mobile"+preid);id=getRowById("mobile"+id);
+return (preid>=id);
+}//true means error
+
+function getRowById(someid){
+someid=document.getElementById(someid);
+if(someid){return someid.parentNode.parentNode.firstChild.innerHTML.charAt(4)}
+}
+
+//ENCRYPTION
+function encrypt(){//global-->string
+this.string="#%";
+for(var loop5=1;loop5<=15;loop5+=2){
+this.rowstring="$%";
+for(var loop4=1;loop4<=5;loop4++){
+this.tdstring="";
+this.short=document.getElementById("cell"+loop5+loop4).firstChild;
+if(this.short)
+{this.tdstring+=this.short.className+"~"+this.short.title+"~"+this.short.id.split("e")[1]+"~"+this.short.innerHTML+";";}else{this.tdstring+="[blank];"}//close if
+this.rowstring+=this.tdstring}//close loop4
+this.string+=this.rowstring}//close loop5
+return this.string;
+}
+
+var newdiv,rowarray,tdarray;
+
+function decrypt(str){
+for(var loop10=1;loop10<=15;loop10+=2){
+for(var loop9=1;loop9<=5;loop9++){
+document.getElementById("cell"+loop10+loop9).innerHTML=""}
+}
+
+rowarray=str.split("$%");
+for(var loop8=1;loop8<=8;loop8++){
+tdarray=rowarray[loop8].split(";");
+
+for(var loop7=0;loop7<=4;loop7++){if(tdarray[loop7]!="[blank]"){
+	var abbr=tdarray[loop7].split("~");
+	this.class=abbr[0];this.title=abbr[1];this.id="mobile"+abbr[2];this.html=abbr[3];
+	newdiv=document.createElement("div");
+	newdiv.innerHTML=this.html;
+	newdiv.setAttribute("class",this.class);
+	newdiv.setAttribute("id",this.id);
+	newdiv.setAttribute("title",this.title);
+	newdiv.setAttribute("draggable","true");
+	newdiv.setAttribute("ondragstart","set(event);origtd=this.parentNode");
+	newdiv.setAttribute("style","padding:5px");
+	document.getElementById("cell"+(2*loop8-1)+(loop7+1)).appendChild(newdiv);
+}}//close loop7+if
+}//close loop8
+}//close decrypt
+
+
+
+
+
+//DRAG AND DROP
+var row;var origtd;
+
+for(var loop2=1;loop2<=15;loop2+=2){
+for(var loop1=1;loop1<=5;loop1++){
+var short=schedChart.childNodes[loop2].childNodes[loop1];//a table datum
+short.setAttribute("id","cell"+loop2+loop1);
+short.setAttribute("ondragover","prev(event)");
+short.setAttribute("ondrop","get(event);if(origtd!=this){recalc(origtd);recalc(this)}verify(this.firstChild);saver.style.opacity=1.0");
+if(short.firstChild){//a div
+short=short.firstChild;
+short.setAttribute("id","mobile"+loop2+loop1);
+short.setAttribute("draggable","true");
+short.setAttribute("ondragstart","set(event);origtd=this.parentNode");
+short.setAttribute("style","padding:5px");
+}
+}
+}
+
+function set(ev) {ev.dataTransfer.setData("Text",ev.target.id)}//ondragstart
+function prev(ev) {ev.preventDefault()}//ondragover
+function get(ev) {//ondrop
+	var data=ev.dataTransfer.getData('Text');
+	ev.target.appendChild(document.getElementById(data));
+}
+
+
+
+
+//HANDLE TABS
+var tabTotal=0;
+var currentTab="Original";
+var previousTab="Original";
+//FRESH START:localStorage.tabs="!%Original@%"+Date().slice(4,24)+encrypt();
+if(!localStorage.tabs){localStorage.tabs="!%Original@%"+Date().slice(4,24)+encrypt()}
+
+function recallTabs(){
+this.tabs=localStorage.tabs.split("!%");
+for(var loop11=2;loop11<this.tabs.length;loop11++)
+{
+this.tabtext=this.tabs[loop11];
+this.tabname=this.tabtext.slice(0,this.tabtext.indexOf("@%"));
+this.timetext=this.tabtext.slice(this.tabtext.indexOf("@%")+2,this.tabtext.indexOf("#%"));
+
+this.space=document.createElement("div");this.space.style.height="29px";
+this.tabelem=document.createElement("div");this.tabelem.innerHTML=this.tabname;this.tabelem.className="schedTab";
+this.tabelem.addEventListener("click",function() {loadTab(this)});this.tabelem.id=this.tabname+"tabber";
+this.timeelem=document.createElement("i");this.timeelem.innerHTML=this.timetext;this.timeelem.style.fontSize="12px";
+
+this.tabelem.appendChild(document.createElement("br"));
+this.tabelem.appendChild(this.timeelem);
+schedTabList.insertBefore(this.tabelem,schedTabAdd);
+schedTabList.insertBefore(this.space,schedTabAdd);
+tabTotal++;
+}
+}recallTabs();
+
+
+function addTab(){if(tabTotal<6){
+	var name=prompt("Enter a name for the new tab.");
+	while((localStorage.tabs.indexOf("!%"+name)!=-1)&&(name!="null")){ 	
+		if(name==""){name=prompt("Whoops! You didn't enter a name. Try again.")}
+		else{name=prompt("That name is taken. Please enter another name for the new tab.")}	
+	}
+	if(name!="null"){
+	this.time=Date().slice(4,24);
+	localStorage.tabs+="!%"+name+"@%"+this.time+"#%"+encrypt();alert("New tab stored.");
+	this.space=document.createElement("div");this.space.style.height="29px";
+	this.tabelem=document.createElement("div");this.tabelem.innerHTML=name;this.tabelem.className="schedTab";this.tabelem.id=name+"tabber";
+	this.tabelem.addEventListener("click",function() {loadTab(this)});
+	this.timeelem=document.createElement("i");this.timeelem.innerHTML=this.time;this.timeelem.style.fontSize="12px";
+	
+	this.tabelem.appendChild(document.createElement("br"));
+	this.tabelem.appendChild(this.timeelem);
+	schedTabList.insertBefore(this.tabelem,schedTabAdd);
+	schedTabList.insertBefore(this.space,schedTabAdd);
+	tabTotal++
+	}//close if(name!="null)
+}else{alert("You can only save up to six tabs for the time being. It\'s just a temporary design issue- nothing technical.")}}
+
+
+
+function loadTab(tab) {
+	saver.style.opacity=0.3;
+	if(tab.innerHTML=="Original"){saver.innerHTML="Save As";saver.onclick=addTab}else{saver.innerHTML="Save Work";saver.onclick=saveTab}
+	
+	previousTab=currentTab;
+	currentTab=tab.innerHTML.split("<br>")[0];
+	this.short=localStorage.tabs;
+	this.short=this.short.slice(this.short.indexOf("!%"+currentTab)+2,this.short.length);
+	decrypt(this.short.slice(this.short.indexOf("#%")+2,this.short.indexOf("!%")));
+	
+	currentTabDisp.innerHTML=currentTab;	
+}
+
+function saveTab() {
+this.ind1=localStorage.tabs.indexOf("!%"+currentTab);
+this.ind2=localStorage.tabs.slice(this.ind1+2,localStorage.tabs.length).indexOf("!%");
+this.newtime=Date().slice(4,24);this.newfile="!%"+currentTab+"@%"+this.newtime+encrypt();
+if(this.ind2!=-1){this.end=localStorage.tabs.slice(this.ind2,localStorage.tabs.length)}else{this.end=""}
+localStorage.tabs=localStorage.tabs.slice(0,this.ind1)+this.newfile+this.end;
+
+document.getElementById(currentTab+"tabber").childNodes[2].innerHTML=this.newtime;
+}
+
+function deleteTab() {
+if(currentTab!="Original"){
+loadTab(document.getElementById(previousTab+"tabber"));
+
+this.ind1=localStorage.tabs.indexOf("!%"+currentTab);
+this.short=localStorage.tabs.slice(this.ind1+2,localStorage.tabs.length);
+this.ind2=this.short.indexOf("!%");
+if(this.ind2!=-1){this.end=this.short.slice(this.ind2,localStorage.tabs.length)}else{this.end=""}
+localStorage.tabs=localStorage.tabs.slice(0,this.ind1)+this.end;
+
+this.badelem=document.getElementById(currentTab+"tabber");
+schedTabList.removeChild(this.badelem.nextSibling);schedTabList.removeChild(this.badelem);
+tabTotal--;
+
+}else{alert("Hey! You can't delete the original! I made that!")}
+}
+
+
+
+
+
+
+
+var conflict;
+
+
+//CLASS SUBTOTALS
+function recalc(td) {
+row=td.parentNode;var sum=0;var pe=0;conflict=false;
+for(var loop3=1;loop3<=5;loop3++){
+
+if(row.childNodes[loop3].childNodes[1]){conflict=true}
+if(row.childNodes[loop3].firstChild){
+if(row.childNodes[loop3].firstChild.childNodes[1]){conflict=true}
+switch(row.childNodes[loop3].firstChild.title){
+	case 'Physical Education':pe++;break;
+	case '1.5':sum+=1.5;break;
+	case '0.5':sum+=0.5;break;
+	default:sum++;
+	}//close switch
+}//close if
+
+}//close for loop
+if(pe>0){sum+="+"+pe+"PE"}
+row.lastChild.innerHTML=sum;
+if(conflict){row.lastChild.innerHTML="Time Conflict"}
+}//close func
+
+
+
+
+//EFFECTS
+var count=300;var int;
+ 
 function togInfo() {
 if(toggle.style.display=="none")
-{toggle.style.display="block";cont.innerHTML="Collapse Info"}
+{toggle.style.display="block";cont.innerHTML="Collapse Info";if(count==300){togSched()}}
 else{toggle.style.display="none";cont.innerHTML="View Info Again"}
 }
 
 function togSched() {
 	if(count==100){
-	body.style.opacity=0.4;
+	if(toggle.style.display=="block"){togInfo()}
+	body.style.opacity=0.3;
 	schedControl.innerHTML="Hide Schedule";
 	sched.style.opacity=1.0;
 	sched.style.zIndex=2;
 	int=setInterval(inc,10);
 	}
 	else if(count==300){
-	int=setInterval(dec,10)
+	int=setInterval(dec,10);
 	body.style.opacity=1.0;
 	schedControl.innerHTML="View Schedule";
-	sched.style.opacity=0.4;
+	sched.style.opacity=0.3;
 	sched.style.zIndex=-1;
 	}
 }
-function dec(){count-=10;sched.style.left=count+"px";if(count<=100){clearInterval(int)}}
-function inc(){count+=10;sched.style.left=count+"px";if(count>=300){clearInterval(int)}}
 
+function dec(){count-=10;sched.style.left=count+"px";schedTabList.style.left=(count-300)+"px";if(count<=100){clearInterval(int)}}
+function inc(){count+=10;sched.style.left=count+"px";schedTabList.style.left=(count-300)+"px";if(count>=300){clearInterval(int)}}
+
+var str2=encrypt();
 
 </script>
 
