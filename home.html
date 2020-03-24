@@ -1,0 +1,57 @@
+<html><head><style></style></head>
+<body>
+<h1>How do I use BranPlan?</h1>
+You'll want to see the <a href="docu.html">documentation</a>.
+    
+<h1>Does BranPlan have a larger purpose?</h1>
+Yes! I started making this over the summer of 2013 while I was still in India. It began as a planner for myself, just two plain
+columns in Notepad so that I could cross-list courses for a double major. But that's not the same reason for which I've made it and its code public.
+I want Brandeis to see more student initiatives over the years. Anyone can code, and all the ideas came off my desktop or through Professor Hickey's 
+mentorship in using the Parse cloud. Long-term initiatives (in contrast to a part-time/full-time job) take the most effort, but they're the most rewarding
+as well. Now that I feel I have grown a lot and that I am capable of producing something significant, I can get other nascent coders onto their feet.
+I also hope I can save others a signifant amount of time and energy by sharing my experience.
+
+<h1>How did you make it?</h1>
+The only fancy thing is Parse, which Professor Hickey introduced to me after I'd been using localStorage. This is made in JavaScript
+and is powered by jQuery. I do not recommend using Notepad unless you want a serious challenge. This uses 1 HTML file, 1 CSS file,
+and 3 JavaScript files.
+
+<h1>What can you tell me about its infrastructure?</h1>
+There are three pieces to the JavaScript, for which I have three different scripts (and an estimation of how long it took compared to the entire project).
+
+scrip.js (5%): getting the data
+The same-origin policy won't allow access from one domain to the HTML at another domain. This bad-boy sets up an iframe right
+on registrar-prod.unet.brandeis.edu and loads 84 departments. Scrip gathers course information in a Course object which are in
+turn stored in Department objects and sent to the cloud. The challenge here is really just the nitty-gritty information scraping and
+triggering the chain of events to load and upload.
+
+core_2.js (80%): first face
+The first face is the console UI, bay for added classes, menu of saved schedules, and a drag-and-drop UI. For HTML5's drag and drop,
+make sure the draggable element has an id.
+The largest challenges here were all related to not visualizing the final product. A good amount of code was removed or cut down on.
+Then I was never sure of what the next step should be. Even a 60-second glimpse into the future would have saved me dozens of hours.
+Just comprehending what users might do with files was a hassle, it being the first time. I went back and forth between a number of functions,
+but the final list is: add, save, delete, load. That list alone might have saved me over a month and a great deal of head-scratching.
+
+bay_3.js (15%): second face
+This is still pretty raw as of March 4. The challenge here was organization, and I couldn't wrap my head around my own code until I started giving
+longer and more appropriate names (i.e., depToCourse instead of load2). It's funny now to think that better naming choices could have saved
+me a lot of stress and effort.
+
+
+<h1>Who made it?</h1>    
+That's me! Prakhar Sahay! I'm a proud member of the Brandeis Class of 2017. I'm equally interested in biology and computer science.
+For computer science, I'm learning Java and Python. I'm most fluent in JavaScript/HTML5/CSS3/DOM/JSON/jQuery/SVG. 
+BranPlan has been my JavaScript masterpiece project under Professor Timothy J. Hickey.
+</body>    
+
+<h5>As it was registered:</h5>
+It is a project with one end product, a JavaScript program for creating and modifying college course schedules. It utilizes Parse, jQuery, and 
+JSON. The user interface collects from the Parse interface to load the user's saved schedules and courses offered by the university.
+
+<br>Several universities already use similar programs for planning only the current semester's schedule. Other limitations include the speed when 
+the school's servers are being used and the rigidity of prerequisites (which are often difficult or impossible to override). Brandeis does not 
+have a similar program and my hope is to inspire students from schools which may not already offer such a program to undertake this challenge 
+for their own school or to at least understand the various parts involved in my project.
+    
+</html>

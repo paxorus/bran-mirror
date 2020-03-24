@@ -1,0 +1,82 @@
+<html><head><title>Courses</title><link href="heavyStyle.css" rel="stylesheet"></link></head><body>
+
+
+<div id="loginBox" class="box" style="top:0;display:none">
+<span id="welcome">Welcome to BranPlan!</span>
+<span style="display:block;height:10px"></span>
+<input type="text" id="email" placeholder="E-mail" size="15"></input><span>@brandeis.edu</span>
+<span style="display:block"></span>
+<input type="password" id="password" placeholder="Password" size="29"></input>
+<span style="text-decoration:underline;color:blue;cursor:pointer;font-size:12px;float:right;display:block" onclick="resetPass()">Forgot Password</span>
+<span style="display:block;height:10px"></span>
+<div onclick="signUp()" class="logButton" id="signUp">sign up</div>
+<span style="display:inline-block;width:20px;height:1px"></span>
+<div onclick="logIn()" class="logButton">log in</div>
+</div><!--close loginBox-->
+
+<div id="accountCover" style="position:absolute;top:0;left:0;height:100%;width:100%;z-Index:1"></div>
+
+<div id="accountWrapper">
+<div id="schedTabList" style="right:0">
+<div class="schedTab" onclick="loadTab(this);saver.innerHTML='Save As';saver.onclick=addTab">Original</div>
+<div style="height:29px"></div>
+<div id="schedTabAdd" onclick="addTab()"><b style="position:relative;left:50px">+</b></div>
+</div>
+
+
+<div id="sched3" style="right:0">
+<div class="box">
+<span id="currentUserDisp"></span> 
+<span onclick="Parse.User.logOut();location.reload()" style="text-decoration:underline;color:blue;cursor:pointer">Logout</span>
+<br>You are currently viewing <span id="currentTabDisp">Original</span>.
+<br><button onclick="addTab()" id="saver" style="opacity:0.3">Save Work</button>
+<button onclick="if(confirm('Are you sure? A schedule cannot be retrieved once it is deleted.')){deleteTab()}">Delete this Tab</button>
+<button onclick="toCloud()">Send to Cloud</button>
+<br>
+<table><tbody id="schedChart"></tbody></table>
+</div>
+
+<div class="box" id="console"><code>
+    <div class="ctech">All tabs recalled successfully.</div>
+    <div class="chappy">There are no errors.</div>
+</code></div>
+
+<div class="box" id="bay2">
+    <img src="trashcan-128.png" style="float:right" ondragover="prev(event)" ondrop="getTrash(event);recalc(origtd)" />
+</div>
+<div class="box" style="position:relative;top:20px">
+Hit spacebar to alternate between schedule view and class view. Choose a department, course, and section in class view
+to produce draggable blocks in schedule view.
+<br>Always save before sending to the cloud!
+<br><a href="home.html" target="_blank">Learn more</a>
+</div>
+
+</div>
+
+
+
+<div id="sched2" style="left:100%">
+    <div id="deps"></div>
+    <div style="float:left">
+        <div id="courseArr"></div>
+        <div id="_ADF"></div>
+    </div>
+    <div id="bay"><!--<div style="background-color:white;height:200px;width:200px"></div>-->
+    <select id="season" style="float:right" onchange="seasonify(this.value)">
+        <option >Fall 2014</option>
+        <option>Summer 2014</option>
+        <option>Spring 2014</option>
+        <option>Fall 2013</option>
+    </select>
+    </div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+<script src="heavyQuant_1.js"></script>
+<script src="heavySched_2.js"></script>
+<script src="heavyBay_3.js"></script>
+
+</body>
+</html>

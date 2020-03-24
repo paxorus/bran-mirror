@@ -1,0 +1,57 @@
+<html><head><style></style></head>
+<body>
+BranPlan is composed of two faces. Upon loading, the first face is displayed. The spacebar will slide one out of view and the 
+other into view if they are not already in the process of sliding. Here is a full documentation of the first and second faces:
+<h1>First Face</h1>
+The first face recalls all the tabs from the Parse cloud and loads Original. 
+<h3>Console UI</h3>
+After its standard two lines, the console can throw the following 8 messages:
+<ul>
+    <li>Tab {tab} has been stored.: upon adding</li>
+    <li>A tab was not added.: upon cancelling the adding process</li>
+    <li>Don't be greedy!: upon attempting to add a 7th non-Original tab</li>
+    <li>Tab {tab} deleted successfully.: upon deleting</li>
+    <li>Hey! You can't delete the original! I made that!: upon attempting to delete Original</li>
+    <li>Tab {tab} loaded successfully.: upon loading</li>
+    <li>Tab {tab} has been saved successfully.: upon saving</li>    
+</ul>
+<h3>Bay</h3>
+Any draggable mobiles can be dragged off the bay onto the drag-and-drop UI. Mobiles cannot be dragged onto the bay,
+except over the trashcan. Any course dragged onto the trashcan will disappear and cannot be retrieved without a schedule reload.
+Draggable mobiles are made available by bay of the second face.
+<h3>Menu of Saved Schedules</h3>
+Original can be neither saved nor deleted. It has no timestamp. An attempt to save will be treated as an attempt to save it as a new tab.
+The last tab is used to add a new tab. A different name will be prompted if no name is entered (Whoops! You didn't enter a name. Try again.) 
+or if the name is already taken (That name is taken. Please enter another name for the new tab.).
+Deleting a non-Original tab will confirm with the user that the user wishes to delete it. Upon confirmation, it cannot be retrieved without a page
+reload. The previous tab will be loaded. If that tab is deleted, Original will be loaded.
+The save button is intended solely for saving a schedule's state if the user wishes to load another schedule. Use the Send to Cloud button to survive
+a page reload. A save rewrites the timestamp.
+Clicking a tab loads that schedule unless its schedule is already open. For a schedule reload, without hitting save, load a different tab and
+then load the desired schedule. All edits since the last save will have been erased.
+<h3>Drag-and-Drop UI</h3>
+This is the heart of the program. There are 11 semesters (4 falls, 4 springs, 3 summers). An empty row has a smaller height. There are 6 columns.
+An empty column does not have a smaller width. The number of courses is calculated at the righthand side. 
+Dragging any mobile lights up the save button, or a save as button in the case of Original. Classes placed in the same cell will increase the
+height of the cell and count as one course. Mobiles can only be dragged off the UI if they are dragged to the trashcan in the bay.
+Currently, PE and custom lab courses count as 4 credits and do not have a tooltip title.
+<h1>Second Face</h1>
+<h3>Course Selection</h3>
+72 departments are listed in alphabetical order in the lefthand column without accessing Parse. Clicking a department accesses its courseArray on Parse and retrieves
+all the courses in a second column. The courses are listed by their shorthand and full title. Clicking a course reveals more information about
+the course, its sections, and an Add button for each section. If there are too many courses or sections, a scroll bar appears. The course information
+is the shorthand and full title, the professor, the fulfilled graduation requirements, and the link to the course description. The section information
+is the SAGE number on the button, the section's' availability and size, and the time and place of the section.
+
+<h3>Bay</h3>
+The Add button produces a block in the second face's bay and a draggable block in the first face's bay. Deletion of one block deletes the block on
+the other face. Hitting the X button on a block in the bay deletes it and its draggable partner.
+
+<h3>Changing the Season</h3>
+At the very bottom, aligned with the bay, is the Switch button. It switches between Fall 2013 data and Spring 2014 data. Once the data are switched,
+the next time a department is clicked, the new data will be in place.
+</body>    
+    
+    
+    
+</html>

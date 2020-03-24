@@ -1,0 +1,115 @@
+<html><head><title>Rosbash Lab</title>
+<base href="http://www.bio.brandeis.edu/rosbashlab/">    
+<style>
+    body{
+        background-image:url('images/mrbackground.jpg');
+        font-family:Verdana, Helvetica, Arial;
+        background-position:center center;
+    }
+    #footer{position:absolute;padding-bottom:5px;left:0px;bottom:5px;overflow:hidden;text-align:center;font-size:small;color:white;width:100%;overflow:hidden;}
+    .gall{width:875px;position:absolute;left:0;top:0;}
+    #gallery{position:relative;left:7.5px;top:7.5px;overflow:hidden;width:875px;height:400px;}/*7.5+875+7.5*/
+    #gallcont{position:absolute;left:50%;margin-left:-445px;background-color:#000;top:25%;width:890px;height:415px;}/*890*/
+    
+    .button{color:white;background-color:#20719D;padding:5px;width:100px;}
+    .button:active{background-color:#C60;}
+    .button:hover{background-color:#C60;}    
+    .buttoncont{position:absolute;padding-bottom:3px;padding-right:3px;background-color:#000;top:20%;border-radius:5px;width:110px;}
+    #minim{position:absolute;border:1px #FFF solid;width:5px;height:5px;top:4px;right:4px;opacity:0.7;}
+    #maxim{position:absolute;border:1px #FFF solid;width:7px;height:10px;bottom:0;right:0;visibility:hidden}
+    #desCont{position:absolute;background-color:#000;bottom:0;height:15px;opacity:0.7;width:875px;height:14px;padding:4px 0;}/*4+867+4 x 4+14+4*/
+    #des{color:white;position:absolute;bottom:0;font-size:12px;padding:4px}
+</style>
+
+</head>
+<body>
+
+
+    <div class="buttoncont" style="left:29%"><div class="button">Research</div></div>
+    <div class="buttoncont" style="left:40%"><div class="button" width="2%">Publications</div></div>
+    <div class="buttoncont" style="left:51%"><div class="button" width="2%">People</div></div>
+    <div class="buttoncont" style="left:62%"><div class="button" width="2%">Resources</div></div>
+
+    <br>
+<div id="gallcont">
+<div id="gallery">    
+<img class="gall" src="images/cellcovertop.gif" style="opacity:1">    
+<img class="gall" src="images/Building.1.jpg" style="opacity:0">
+<img class="gall" src="images/shanggfp.jpg" style="opacity:0">
+<img class="gall" src="images/menetKCA2010.jpg" style="opacity:0">
+<img class="gall" src="images/Symposium2009.jpg" style="opacity:0">
+<img class="gall" src="images/Lab.1.jpg" style="opacity:0">
+<img class="gall" src="images/cellcoverbottom.gif" style="opacity:0">
+<img class="gall" src="images/hhmi_logo.jpg" style="opacity:0">
+<div id="desCont"><div id="minim" onclick="minimDes()"></div></div>
+<div id="des">2007 Cell cover- Stoleru et al.</div>
+<div id="maxim" onclick="maximDes()"></div>
+</div>    
+</div>
+    
+    
+    
+<div id="footer">Brandeis University &#8901; Mailstop 008 &#8901; 415 South Street &#8901; Waltham, MA 02454 &#8901; 781-736-3161</div>    
+    
+<script>
+    var i=-1;var j=0;
+
+
+    var gallery=document.getElementById("gallery");
+    var pics=gallery.getElementsByClassName("gall");
+    //var minim=document.getElementById("minim");
+    var maxim=document.getElementById("maxim");
+    var des=document.getElementById("des");
+    var desCont=document.getElementById("desCont");
+
+    var desArray=["2007 Cell cover- Stoleru et al.",
+    "The new Carl J. Shapiro Science Center",
+	"l-LNvs (green) and s-LNvs (red) Shang 2008",
+	"Cycling POL,CLK,PER proteins on timeless gDNA Menet 2010",
+	"Brandeis Genetics NIH Training Grant Symposium- June 2009",
+	"Rosbash Lab",
+	"2007 Cell cover- Stoleru et al.",
+	"HHMI"];
+
+
+    var loop3;
+    function fadePics(){
+        pics[i].style.opacity=1-loop3/100;
+        pics[j].style.opacity=loop3/100;
+        if(loop3<=100){loop3++;setTimeout(fadePics,10)}else{setTimeout(switchPics,3000)}
+    }
+
+    function switchPics(){
+        i=(i+1)%pics.length;
+        j=(j+1)%pics.length;
+        loop3=1;
+        fadePics();
+        des.innerHTML=desArray[j];
+    }setTimeout(switchPics,3000);
+    
+    var loop1;//go down 22px
+    function minimDes(){
+        loop1=1;
+        dropDes();
+    }
+    function dropDes(){
+        desCont.style.bottom=-loop1+"px";
+        des.style.bottom=-loop1+"px";
+        if(loop1<=21){loop1++;setTimeout(dropDes,10)}else{maxim.style.visibility="visible"}
+    }
+    
+    var loop2;//go up 22px
+    function maximDes(){
+        maxim.style.visibility="hidden";
+        loop2=22;
+        raiseDes();
+    }
+    function raiseDes(){
+        desCont.style.bottom=-loop2+"px";
+        des.style.bottom=-loop2+"px";
+        if(loop2>=1){loop2--;setTimeout(raiseDes,10)}
+    }
+    
+</script>
+    
+</body></html>

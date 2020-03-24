@@ -1,0 +1,109 @@
+<html><head><title>Courses</title><link href="pStyle.css" rel="stylesheet"></link></head><body>
+
+<!-- PANEL 1: WELCOME -->
+<div id="welcome" class="box">
+    <span style="font-size:36px">Welcome to BranPlan!</span>
+    <div id="loginHeader">
+        <span style="font-size:24px">BranPlan is a free Web app, and a new way to think about your four-year plan at Brandeis.</span>
+        <br>It features a simple drag-and-drop interface for easy manipulation and multiple saveable schedules.
+        <br>If you're a student who's trying to fit several majors or minors, or needs to watch the number of credits each semester,
+        <br>or ensuring that all graduation or premedical requirements are fulfilled, then I hope that BranPlan suits your needs.
+    </div>
+    
+    <div style="display:block;height:90px"></div>
+    <span id="loginMessage"></span>
+    <span style="display:block;height:10px"></span>
+    <div id="isLoggedIn" style="display:none">
+        <div onclick="startBranPlan(Parse.User.current())" class="logButton">Start Editing!</div>
+        <div onclick="Parse.User.logOut();location.reload()" class="logButton">Log Out</div>
+    </div>
+    
+    <div id="isLoggedOut" style="display:none">
+        <input type="text" id="email" placeholder="E-mail" size="15"></input><span>@brandeis.edu</span>
+        <span style="display:block"></span>
+        <input type="password" id="password" placeholder="Password" size="29"></input>
+        <span id="resetPassword" onclick="resetPass()">Reset Password</span>
+        <span style="display:block;height:25px"></span>
+        <div onclick="signUp()" class="logButton" id="signUp">sign up</div>
+        <span style="display:inline-block;width:20px;height:1px"></span>
+        <div onclick="logIn()" class="logButton">log in</div>
+    </div>
+    
+    <div id="loginFooter">
+        <a href="home.html" target="_blank">First time? Looking for more information?</a>
+        <br>Use spacebar to alternate between schedule view and class view.
+        Make sure to save your current schedule before switching tabs!
+        <br>Before closing the page, send your data to the cloud to permanently save it!
+        Note that the 'Original' tab is reserved for an upcoming feature.
+        <br><br>Developed by Prakhar Sahay, Class of 2016 undergraduate.
+        <br>Overseen by Timothy J. Hickey, Professor of Computer Science.
+        <br>Unaffiliated with Brandeis University.
+    </div>
+</div><!-- close welcome -->
+
+<!--  -->
+
+<!-- PANEL 2: SCHEDULE -->
+<div id="accountCover" style="position:absolute;top:100%;left:0;height:100%;width:100%;z-Index:1"></div>
+
+<div id="accountWrapper">
+<div id="tabList" style="right:0;top:100%">
+<div class="schedTab" onclick="loadTab(this);saver.innerHTML='Save As';saver.onclick=addTab">Original</div>
+<div style="height:29px"></div>
+<div id="schedTabAdd" onclick="addTab()"><b style="position:relative;left:50px">+</b></div>
+</div>
+
+<div id="sched3" style="right:0;top:100%">
+<div class="box">
+<span id="currentUserDisp"></span> 
+<span onclick="Parse.User.logOut();location.reload()" style="text-decoration:underline;color:blue;cursor:pointer">Logout</span>
+<br>You are currently viewing <span id="currentTabDisp">Original</span>.
+<br><button onclick="addTab()" id="saver" style="opacity:0.3">Save Work</button>
+<button onclick="if(confirm('Are you sure? A schedule cannot be retrieved once it is deleted.')){deleteTab()}">Delete this Tab</button>
+<button onclick="toCloud()">Send to Cloud</button>
+<br>
+<table><tbody id="schedule"></tbody></table>
+</div>
+
+<div class="box" id="console"><code>
+    <div class="ctech">All tabs recalled successfully.</div>
+    <div class="chappy">There are no errors.</div>
+</code></div>
+
+<div class="box" id="bay2">
+    <img src="trashcan-128.png" style="float:right" ondragover="prev(event)" ondrop="getTrash(event);recalc(origtd)" />
+</div>
+
+
+
+</div><!-- close sched3 -->
+
+<!-- PANEL 3: COURSE BROWSER -->
+<div id="browser" style="top:100%">
+    <div id="departments"></div>
+    <div style="float:left">
+        <div id="courseList"></div>
+        <div id="info"></div>
+    </div>
+    <div id="bay"><!--<div style="background-color:white;height:200px;width:200px"></div>-->
+    <select id="season" style="float:right" onchange="seasonify(this.value)">
+        <option >Fall 2014</option>
+        <option>Summer 2014</option>
+        <option>Spring 2014</option>
+        <option>Fall 2013</option>
+        <option>Summer 2013</option>
+        <option>Spring 2013</option>
+        <option>Fall 2012</option>
+    </select>
+    </div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+<script src="pQuant_1.js"></script>
+<script src="pSched_2.js"></script>
+<script src="pBay_3.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+INFORMATION FLOW:
+courseArray is [] of Course(),Course() is {no,short,info,title,req,note,logi,status,size,teach}
+Common to class: {short,title,teach,req,info}+index
+Unique signature: {title,no,short+index,status,size,logi}+index
+Retrievable from octosem view: {short}
+Retrievable from unisem view: {no,short,info,}
+
+Next step:
+courseTest3.html
+(A)majors-->cross-listing courses: do!
+(B)courses-->nearby majors: difficult since majors flexible
+Choose department-->course and generate a draggable block.
+List whether a major is fulfilled based on eight rows of spaces.
+Data for block: dep, short, reqs, title
+
+
+Static:
+bchmbs:gen,orgo,phys,bio,100a,101a,103b,104b
+bioba:gen,orgo,bio,16a
+-----
+final:gen,orgo,phys,bio,16a
+
+Solution:join m1 and m2, remove repeats
+
+
+Elective:
+bchmbs:1 100+,104a/141a
+bioba:1 quant,3-5 bio elec,0-2 gen elec
+-----
+An elective is a set of statics and shorts.
+Bioba has do more elec so solve first, overlaps or move on: ---,bchm 155b/bchm 100a/bchm 172a,bchm 101a/103b/104a/104b/100+
+Bioba unresolved:quant,0 bio elec,0 gen elec
+Bchmbs check against bioba statics/resolved elec/unresolved elec:bchm 155b/172a
+Resolved:bchm 155b+172a,Unresolved:quant
+-----
+final:155b,172a,quant
+
+
+Solution:check m1 elec with m2 static, check m2 elec with m1 static,compile elecs,then check for shared elecs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+New mission:
+good free schedule generator-->courseTest3 parses info and displays it
+include names of professors-->courseTest2 saves selected class ids locally
+printable?
+
+
+
+
+
+
+
+
+
+
+
+
+
+

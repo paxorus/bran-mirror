@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Tac Tic Toe</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+<style>
+/*.gray{height:100px;width:100px;background-color:#AAA;position:absolute;text-align:center;font-size:100px}*/
+</style>
+</head>
+<body>
+Type your move, push it, and wait for your opponent to lock his answer in!
+<div style="position:relative">
+Your move: <input type="text" id="you" /><button type="button" onclick="push()">Push Answer</button>
+<br>Opponent move: <input type="text" readonly id="opp"></div>
+<div style="color:green" id="mess"></div>
+
+<script>
+if(!localStorage.play){localStorage.play=1}
+var opp=$("#opp")[0];
+var you=$("#you")[0];
+var mess=$("#mess");
+
+var Parse;
+Parse.initialize("r0raWxihobjYXDFyboAXLv6Shv6HyGsaFpKYlTWk", "ebigHVj8Fcy6mcUXXs4Prl78yvAY8x67BiL6wXGj");
+var TestObject=Parse.Object.extend("TestObject");
+var obj=new TestObject();
+var query=new Parse.Query(TestObject);
+
+/*
+Comp id'd. Type+push,then act:
+opp ready:add yours if not already,reveal
+not ready:add yours
+
+erase if 2nd
+*/
+
+function push(){
+    query.get("pFhMjmgEmM",
+        {success:function(incoming){
+            obj=incoming;
+            var foo=JSON.parse(obj.get("foo"));
+            var y=localStorage.play;
+            if(foo[1-y]){//opp answer
+                mess.text();
+                if(!foo[y]){
+                    foo[y]=you.value;
+                    mess.text("Your answer has been revealed to your opponent!");
+                    foo[2]="ready";
+                }
+                opp.value=foo[1-y];
+                mess.text(mess.text()+"\nYour opponent's answer has been revealed.");
+            }
+            else{//no opp answer
+                foo[y]=you.value;
+                mess.text("Your answer was updated.");
+            }
+            obj.save({foo:JSON.stringify(foo)});
+        }
+    });//close query.get
+}//close push
+
+
+</script>    
+    
+    
+    
+</body></html>

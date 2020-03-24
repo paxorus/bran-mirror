@@ -1,0 +1,36 @@
+Inject jQuery, Parse, and Scrip. 
+Inject portal with first page. Initialize depCount and deps[]. portal.onload=depPause.
+depPause:get html of portal,kickoff (if page exists),until complete:count,log else wipe portal.onload
+kickoff:wipe courseArray[],discern and getCourse,create Department object with courseArray[],push to deps[]
+getCourse:wipe course[],push all properties (using getReqs and abridge as needed),create Course object,push to courseArray[]
+
+function Course(arr){
+    this.no=arr[0];
+    this.short=arr[1];this.info=arr[2];
+    this.title=arr[3];this.req=arr[4];this.note=arr[5];
+    this.logi=arr[6];
+    this.status=arr[7];
+    this.size=arr[8];
+    this.teach=arr[9];
+}
+
+OBJECTIVE:Upload each Department() to cloud.
+deps[] contains 84 Department() objects with courseArray[],courseArray[] contains x Course() objects with course[] props
+1) Parse.initialize
+2) Create a class,(its instance),and a query.
+3) 
+
+
+Parse.initialize("r0raWxihobjYXDFyboAXLv6Shv6HyGsaFpKYlTWk", "ebigHVj8Fcy6mcUXXs4Prl78yvAY8x67BiL6wXGj");
+Department=Parse.Object.extend("TicTacClass");
+//var query=new Parse.Query(Department);
+
+
+TO OBTAIN list of ids from Data Browser
+ids=[];var short=document.getElementsByClassName("r1");
+for(var i=0;i<=short.length-1;i++){
+ids.push(short[i].firstChild.innerHTML);
+}
+
+
+
