@@ -20,7 +20,7 @@ body{font-family:Calibri}
 #sched{position:absolute;top:50px;left:150px;opacity:1.0;z-Index:2;width:700px}
 .schedBox{background-color:#CCC;border-radius:10px;padding:10px}
 #schedTabList{position:absolute;top:50px;left:0}
-.schedTab{width:100px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:10px;background-color:#CCC}
+.schedTab{width:110px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:10px;background-color:#CCC}
 #schedTabAdd{padding:7px;border-style:dashed;border-color:#999;font-size:18px;color:#999}
 #schedTabAdd:hover{border-color:#000;color:#000}
 #strike{text-decoration:line-through}
@@ -34,37 +34,40 @@ th{text-align:left}
 <th>My Courses(29)</th><th>Degree Requirements</th>
 <tr>
 <td>
-<div class="ab item1">BIO(4)<div class="be">
-14a<br>15b<br>16a<br>18a+b(half-courses)
+<div class="ab item1">BIO(5)<div class="be">
+14a+18a<br>15b+18b<br>16a
 </div></div>
 <div class="ab">BCHM(6)<div class="be">
-100a<br>101a<br>103b<br>104a+b<br>155b/172a
+100a<br>101a<br>103b<br>104a+b<br>155b
 </div></div>
 <div class="ab">COSI(9)<div class="be">
-11a<br>12b<br>21a<br>29a<br>31a<br>4 elec
+11a<br>12b<br>21a<br>29a<br>31a<br>130a<br>3 elec
 </div></div>
 <div class="ab">ANTH(1)<div class="be">
-116a1
+136a
 </div></div>
 <div class="ab">PHYS(2)<div class="be">
-11b<br>19a+b(half-courses)
+19a<br>11b+19b
 </div></div>
 <div class="ab">CHEM(3)<div class="be">
-25a+b<br>29a+b(half-courses)
+25a+29a<br>25b+29b
 </div></div>
-<div class="ab itemn">OTHER(4)<div class="be itemn">
-UWS<br>humanities<br>creative arts<br>non-western
+<div class="ab itemn">GRAD(3)<div class="be itemn">
+UWS<br>humanities<br>creative arts
+</div></div>
+<div class="ab itemn">OTHER<div class="be itemn">
+Bio RES<br>Math 22a
 </div></div>
 </td>
 <td>
-<div class="ab item1">BIO<div class="be">
-bio 14a<br>bio 15b<br>bio 16a<br>bio 18a+b<span id="strike"><br>chem 11/15a+b<br>chem 18/19a+b</span><br>chem 25a+b<br>chem 29a+b<br>bchm 100a+155b/172a<br>anth 116a1<br>3 cosi
+<div class="ab item1">BIO BS<div class="be">
+bio 14a+18a<br>bio 15b+18b<br>bio 16a<br>chem 25a+29a<br>chem 25b+29b<br>bchm 100a<br>bchm 155b<br>RES<br>elec<br>4 cosi<br>phys 19a<br>phys 11b+19b
 </div></div>
-<div class="ab">BCHM<div class="be">
-<span id="strike">chem 11/15a+b<br>chem 18/19a+b</span><br>phys 11b<br>phys 19a+b<br>bio 14a/22a+18a<br>bio 15b/22b+18b<br>bchm 100a<br>bchm 101a<br>bchm 103b<br>bchm 104a+b<br>bchm 155b/172a
+<div class="ab">BCHM BS<div class="be">
+phys 19a<br>phys 11b+19b<br>bio 14a+18a<br>bio 15b+18b<br>bchm 100a<br>bchm 101a<br>bchm 103b<br>bchm 104a+b<br>bchm 155b
 </div></div>
-<div class="ab itemn">COSI<div class="be itemn">
-11a<br>12b<br>21a<br>29a<br>31a<br>4 elec<br><span id="strike">math 8a<br>math 10a</span>
+<div class="ab itemn">COSI BA<div class="be itemn">
+11a<br>12b<br>21a<br>29a<br>31a<br>130a<br>3 elec<br><span id="strike">math 8a<br>math 10a</span>
 </div></div>
 </td>
 
@@ -72,8 +75,8 @@ bio 14a<br>bio 15b<br>bio 16a<br>bio 18a+b<span id="strike"><br>chem 11/15a+b<br
 <button id="schedControl" onclick="togSched()">Hide Schedule</button>
 <button id="control" onclick="togInfo()">More Info</button>
 <div id="toggle" style="display:none">For graduation requirements, AP Spanish got me out of the language requirement. Biochemistry 
-courses cover the Science and Quantitative Reasoning requirements. BCHM 155b and BIO 18a cover the oral and writing intensive requirements. 
-Anth 116a1 covers the Social Science requirement. The 6 requirements not fulfilled by degree overlaps:UWS(University Writing Seminar),
+courses cover the Science and Quantitative Reasoning requirements. BIO 155a and BIO 18a cover the oral and writing intensive requirements. 
+Cosi 130a covers the Social Science requirement. The 6 requirements not fulfilled by degree overlaps:UWS(University Writing Seminar),
 HU(humanities),CA(creative arts),NW(Non-Western),2 PE. 
 <p>For core courses, 32 courses total are recommended. 44 is the max and 28 is the min. 
 I'm taking 29 core courses. Course breakdown: 29 core, Math 22a,
@@ -117,15 +120,24 @@ errors in your scheduling, such as multiple classes in one block or a class conc
 close your browser and resume work at any time by clicking on a tab to load it.
 </div>
 <div class="schedBox" id="console"><code>
-    <div class="ctech">All tabs loaded successfully.</div><div class="chappy">There are no errors.</div>
+	<div class="ctech">All tabs recalled successfully.</div><div class="chappy">There are no errors.</div>
 </code></div>
-<!--<div class="schedBox" id="custom"></div>-->
+<div class="schedBox" id="custom"></div>
+<!--
+
+1 to 7
+class name
+color (class dropdown)
+
+-->
+
+
 </div><!--end id=sched-->
 
 <div id="schedTabList">
 <div class="schedTab" onclick="loadTab(this);saver.innerHTML='Save As';saver.onclick=addTab">Original</div>
 <div style="height:29px"></div>
-<div class="schedTab" id="schedTabAdd" onclick="addTab()"><b style="position:relative;left:45px">+</b></div>
+<div class="schedTab" id="schedTabAdd" onclick="addTab()"><b style="position:relative;left:50px">+</b></div>
 </div>
 
 
@@ -140,8 +152,17 @@ close your browser and resume work at any time by clicking on a tab to load it.
 
 <script>
 //div in a div-->dom exception 3 when attempt to place inside self
-//error console=subtotal total,major req & grad req
+//error console=subtotal total,major req & grad req,check for <5.5,>3,>7
 //add/delete/include+exclude your own classes,major exclusion
+//time conf is an error
+//switch from orig,make change,attempt to load another tab,hit cancel-->"Save As"
+
+
+/*DOCUMENTATION
+LocalStorage stores bank, rest, and tabs. Tabs stores the order of the classes for each tab file. Bank stores the unused classes for each tab file.
+The "custom" schedBox sends the restrictions to Rest, the new class to all files in Bank, and the class box pops up 
+Rest(riction) is the same for all tabs.
+*/
 
 //SHORTS
 var body=document.getElementById("body");
@@ -168,12 +189,14 @@ var error;
 //6 after
 //7 before
 
-//cosi 
+
+
+//cosi
 localStorage.rest="le33~1~le13;le53~1~le13;le113~1~le13;le133~1~le13;le136~1~le13;le156~1~le13;le153~6~6;le73~4~le33,le53;";
 //bio
-localStorage.rest+="le131~6~6;le151~6~6;";
+localStorage.rest+="le132~6~6;le152~6~6;";
 //phys
-localStorage.rest+="le31~3~le11;";
+localStorage.rest+="le31~3~le32;";
 //chem
 localStorage.rest+="le91~3~le92;le111~3~le112;le112~1~le92;";
 //uws,pe
@@ -184,64 +207,41 @@ localStorage.rest+="le34~7~7;le54~7~7;le94~7~7;le114~7~7;";
 
 function verify(divelem){
 error=false;
-this.id="le"+divelem.id;
+this.id=divelem.id.slice(4,divelem.id.length);
 this.rest=localStorage.rest.split(";");
 for(var loop12=0;loop12<this.rest.length;loop12++){
-if((this.rest[loop12].indexOf(this.id))||(!error)){runDiag(this.rest[loop12])}
+if((this.rest[loop12].indexOf(this.id)!=-1)||(!error)){runDiag(this.rest[loop12])}
 }
-if(!error){throwMessage("Diagnostics run. No errors!","chappy")}
+if((!error)&&(!conflict)){throwMessage("Diagnostics run. No errors","chappy")}
 }
 
 function runDiag(rest){
 rest=rest.split("~");
 switch(rest[1]){
-	case '1':if(getRowById(rest[0])<=getRowById(rest[2])){error=true;throwMessage(document.getElementById("mobi"+rest[0]).innerHTML+" must appear after its prerequisite, "+document.getElementById("mobi"+rest[2]).innerHTML+".","cerror")}break;
-	case '2':if(getRowById(rest[0])!=getRowById(rest[2])){error=true;throwMessage(document.getElementById("mobi"+rest[0]).innerHTML+" must appear alongside its corequisite, "+document.getElementById("mobi"+rest[2]).innerHTML+".","cerror")}break;
-	case '3':if(getRowById(rest[0])<getRowById(rest[2])){error=true;throwMessage(document.getElementById("mobi"+rest[0]).innerHTML+" cannot appear before its pre+corequisite, "+document.getElementById("mobi"+rest[2]).innerHTML+".","cerror")}break;
-	case '4':break;
-	case '5':break;
-	case '6':break;
-	case '7':break;
+	case '1':if(getRowById(rest[0])<=getRowById(rest[2])){error=true;throwMessage(swipe(rest[0])+" must appear after its prerequisite, "+swipe(rest[2]),"cerror")}break;
+	case '2':if(getRowById(rest[0])!=getRowById(rest[2])){error=true;throwMessage(swipe(rest[0])+" must appear alongside its corequisite, "+swipe(rest[2]),"cerror")}break;
+	case '3':if(getRowById(rest[0])<getRowById(rest[2])){error=true;throwMessage(swipe(rest[0])+" cannot appear before its pre+coreq., "+swipe(rest[2]),"cerror")}break;
+	case '4':this.arr=rest[2].split(",");
+		if((getRowById(rest[0])<=getRowById(this.arr[0]))&&(getRowById(rest[0])<=getRowById(this.arr[1])))
+		{error=true;throwMessage(swipe(rest[0])+" must appear after either "+swipe(this.arr[0])+" or "+swipe(this.arr[1]),"cerror")}break;
+	case '5':if(getRowById(rest[0])!=rest[2]){error=true;throwMessage(swipe(rest[0])+" must appear during semester "+rest[2],"cerror")}break;
+	case '6':if(getRowById(rest[0])<=rest[2]){error=true;throwMessage(swipe(rest[0])+" must appear after semester "+rest[2],"cerror")}break;
+	case '7':if(getRowById(rest[0])>=rest[2]){error=true;throwMessage(swipe(rest[0])+" must appear before semester "+rest[2],"cerror")}break;
 }
 }
+
+function swipe(id){return document.getElementById("mobi"+id).innerHTML}
 
 function getRowById(id){
 id=document.getElementById("mobi"+id);
 return id.parentNode.parentNode.firstChild.innerHTML.charAt(4);
 }
 
-/*
-function verify(divelem){
 
-preerror=false;
-switch(divelem.className){
-	case "bchm":preerror=(prechk(13,33))||(prechk(13,53))||(prechk(13,73))||(getRowById("mobile133")<=6)
-		||(getRowById("mobile153")<=6)||(prechk(73,93))||coprechk(13,113);break;
-	case "bio":preerror=(getRowById("mobile131")<=6)||(getRowById("mobile151")<=6);break;
-	case "cosi":preerror=(prechk(12,32))||(prechk(12,52))||(prechk(12,112))||(prechk(12,132))||(prechk(12,134))||(precheck(12,154))
-		||((prechk(32,72))&&(prechk(52,72)))||(getRowById("mobile152")<=6);break;
-	case "chem":preerror=(check(94,114));break;
-	default:preerror=(getRowById("mobile31")>=5)||(getRowById("mobile54")>=5)||(getRowById("mobile31")==getRowById("mobile54"))||(getRowById("mobile35")!=2);
-}
-//if(preerror){message=document.createElement("div");message.innerHTML="One or more prequisites are being violated.";message.className="cerror";code.appendChild(message)}
-//^give the message within the appropriate function
-}//close verify
-function prechk(preid,id){
-preid=getRowById("mobile"+preid);id=getRowById("mobile"+id);
-return (preid>=id);
-}//true means error
-function cochk(coid,id){
-coid=getRowById("mobile"+coid);id=getRowById("mobile"+id);
-return (coid!=id);
-}
-function beforechk(id,type){//before,after,
-id=getRowById("mobile"+id);
-switch(type){
-	case "sen":id
-}
-}
-function aftercheck(id){}
-*/
+
+
+
+
 
 
 //ENCRYPTION
@@ -325,10 +325,11 @@ function get(ev) {//ondrop
 //CONSOLE
 var messCount=2;
 code.removeChild(code.firstChild);
+code.removeChild(code.lastChild);
 
 function throwMessage(text,type) {
 message=document.createElement("div");
-message.innerHTML=text;
+message.innerHTML=text+".";
 message.className=type;
 code.appendChild(message);
 messCount++;
@@ -386,29 +387,40 @@ function addTab(){
 		this.tabelem.appendChild(this.timeelem);
 		schedTabList.insertBefore(this.tabelem,schedTabAdd);
 		schedTabList.insertBefore(this.space,schedTabAdd);
-		throwMessage("Tab "+name+" has been stored.","chappy");
+		throwMessage("Tab "+name+" has been stored","chappy");
 		tabTotal++;
 		}//close if(name)
-		else{throwMessage("A tab was not added.","ctech")}
+		else{throwMessage("A tab was not added","ctech")}
 	}//close if(tabTotal<6)
-	else{throwMessage("You can only save up to six tabs for the time being. It\'s just a temporary design issue- nothing technical.","ctech")}
+	else{throwMessage("You can only save up to six tabs for the time being","ctech");
+	throwMessage("It\'s just a temporary design issue- nothing technical","ctech")}
 }//func
 
 
 
 function loadTab(tab) {
-	saver.style.opacity=0.3;
-	if(tab.innerHTML=="Original"){saver.innerHTML="Save As";saver.onclick=addTab}else{saver.innerHTML="Save Work";saver.onclick=saveTab}
-	
+
+	this.dorun=true;
 	previousTab=currentTab;
 	currentTab=tab.innerHTML.split("<br>")[0];
-	if(currentTab!=previousTab){throwMessage("Tab "+currentTab+" loaded successfully.","chappy")}
-	this.short=localStorage.tabs;
-	this.short=this.short.slice(this.short.indexOf("!%"+currentTab)+2,this.short.length);
-	decrypt(this.short.slice(this.short.indexOf("#%")+2,this.short.indexOf("!%")));
+	if(currentTab==previousTab){this.same=true}else{this.same=false}
+	if(this.same){this.dorun=false}
 	
-	currentTabDisp.innerHTML=currentTab;	
-}
+	if((saver.style.opacity==1)&&(!this.same)){if(!confirm("Are you sure you want to navigate away? Unsaved changes will be lost.")){this.dorun=false}}
+	
+	if(dorun){
+		throwMessage("Tab "+currentTab+" loaded successfully","chappy");
+		this.short=localStorage.tabs;
+		this.short=this.short.slice(this.short.indexOf("!%"+currentTab)+2,this.short.length);
+		decrypt(this.short.slice(this.short.indexOf("#%")+2,this.short.indexOf("!%")));
+		saver.style.opacity=0.3;
+		if(tab.innerHTML=="Original"){saver.innerHTML="Save As";saver.onclick=addTab}else{saver.innerHTML="Save Work";saver.onclick=saveTab}
+		currentTabDisp.innerHTML=currentTab;
+
+	}//close dorun
+
+}//close func
+
 
 function saveTab() {
 this.ind1=localStorage.tabs.indexOf("!%"+currentTab);
@@ -417,14 +429,13 @@ this.newtime=Date().slice(4,24);this.newfile="!%"+currentTab+"@%"+this.newtime+e
 if(this.ind2!=-1){this.end=localStorage.tabs.slice(this.ind2,localStorage.tabs.length)}else{this.end=""}
 localStorage.tabs=localStorage.tabs.slice(0,this.ind1)+this.newfile+this.end;
 
-throwMessage(currentTab+" has saved.","chappy");
+throwMessage("Tab "+currentTab+" has saved","chappy");
+saver.style.opacity=0.3;
 document.getElementById(currentTab+"tabber").childNodes[2].innerHTML=this.newtime;
 }
 
 function deleteTab() {
 if(currentTab!="Original"){
-loadTab(document.getElementById(previousTab+"tabber"));
-
 this.ind1=localStorage.tabs.indexOf("!%"+currentTab);
 this.short=localStorage.tabs.slice(this.ind1+2,localStorage.tabs.length);
 this.ind2=this.short.indexOf("!%");
@@ -434,8 +445,11 @@ localStorage.tabs=localStorage.tabs.slice(0,this.ind1)+this.end;
 this.badelem=document.getElementById(currentTab+"tabber");
 schedTabList.removeChild(this.badelem.nextSibling);schedTabList.removeChild(this.badelem);
 tabTotal--;
-
-}else{alert("Hey! You can't delete the original! I made that!")}
+throwMessage("Tab "+currentTab+" deleted successfully","chappy");
+this.poss=document.getElementById("schedTabList").childNodes;
+for(var loop1=0;loop1<this.poss.length;loop1++){if(this.poss[loop1].innerHTML==previousTab){this.toload=this.poss[loop1];break}}
+loadTab(this.toload);
+}else{throwMessage("Hey! You can't delete the original! I made that","ctech")}
 }
 
 
@@ -452,10 +466,14 @@ function recalc(td) {
 row=td.parentNode;var sum=0;var pe=0;conflict=false;
 for(var loop3=1;loop3<=6;loop3++){
 
-if(row.childNodes[loop3].childNodes[1]){conflict=true}
-if(row.childNodes[loop3].firstChild){
-	if(row.childNodes[loop3].firstChild.childNodes[1]){conflict=true}
-	switch(row.childNodes[loop3].firstChild.title){
+this.short=row.childNodes[loop3];
+if(this.short.childNodes[1]){throwMessage("Huh? "+this.short.firstChild.innerHTML+" and "+this.short.childNodes[1].innerHTML+" are in the same time slot","cerror")}
+if(this.short.firstChild){
+	if(this.short.firstChild.childNodes[1]){
+	throwMessage(this.short.firstChild.firstChild,"cerror")
+	//throwMessage("Huh? You\'ve placed "+this.short.firstChild.childNodes[1].innerHTML+" inside of "+this.short.firstChild.innerHTML,"cerror")
+}
+	switch(this.short.firstChild.title){
 		case 'Physical Education':pe++;break;
 		case 'Lab':sum+=0.5;break;
 		default:sum++;
@@ -464,7 +482,7 @@ if(row.childNodes[loop3].firstChild){
 }//close for loop
 if(pe>0){sum+="+"+pe+"PE"}
 row.lastChild.innerHTML=sum;
-if(conflict){row.lastChild.innerHTML="Time Conflict"}
+//if(conflict){row.lastChild.innerHTML="Huh?"}
 }//close func
 
 
@@ -472,7 +490,10 @@ if(conflict){row.lastChild.innerHTML="Time Conflict"}
 
 //EFFECTS
 var count=150;var int;
- 
+
+//tabs 0 and -130,sched 150 and 20
+
+
 function togInfo() {
 if(toggle.style.display=="none")
 {toggle.style.display="block";cont.innerHTML="Collapse Info";if(count==150){togSched()}}
@@ -480,7 +501,7 @@ else{toggle.style.display="none";cont.innerHTML="View Info Again"}
 }
 
 function togSched() {
-	if(count==50){
+	if(count==20){
 	if(toggle.style.display=="block"){togInfo()}
 	body.style.opacity=0.3;
 	schedControl.innerHTML="Hide Schedule";
@@ -497,7 +518,7 @@ function togSched() {
 	}
 }
 
-function dec(){count-=10;sched.style.left=count+"px";schedTabList.style.left=(count-150)+"px";if(count<=50){clearInterval(int)}}
+function dec(){count-=10;sched.style.left=count+"px";schedTabList.style.left=(count-150)+"px";if(count<=20){clearInterval(int)}}
 function inc(){count+=10;sched.style.left=count+"px";schedTabList.style.left=(count-150)+"px";if(count>=150){clearInterval(int)}}
 
 var str2=encrypt();
